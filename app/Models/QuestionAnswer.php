@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\QuestionAnswer
@@ -15,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $answer
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Question|null $question
+ * @method static \Database\Factories\QuestionAnswerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|QuestionAnswer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuestionAnswer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|QuestionAnswer query()
@@ -28,4 +32,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class QuestionAnswer extends Model
 {
+    use HasFactory;
+
+    public function question(): BelongsTo
+    {
+        return $this->belongsTo(Question::class);
+    }
 }

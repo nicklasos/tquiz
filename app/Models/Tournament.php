@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Tournament
@@ -15,17 +18,32 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament query()
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tournament whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Question> $questions
+ * @property-read int|null $questions_count
+ * @method static Builder|Tournament active()
+ * @method static \Database\Factories\TournamentFactory factory($count = null, $state = [])
+ * @method static Builder|Tournament newModelQuery()
+ * @method static Builder|Tournament newQuery()
+ * @method static Builder|Tournament query()
+ * @method static Builder|Tournament whereCreatedAt($value)
+ * @method static Builder|Tournament whereDescription($value)
+ * @method static Builder|Tournament whereId($value)
+ * @method static Builder|Tournament whereIsActive($value)
+ * @method static Builder|Tournament whereTitle($value)
+ * @method static Builder|Tournament whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Tournament extends Model
 {
+    use HasFactory;
+
+    public function questions(): HasMany
+    {
+        return $this->hasMany(Question::class);
+    }
+
+    public function scopeActive(Builder $builder): void
+    {
+        $builder->where('is_active', true);
+    }
 }
