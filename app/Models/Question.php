@@ -6,16 +6,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Question
  *
  * @property int $id
+ * @property string $theme_id
  * @property string $question
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\QuestionAnswer> $answers
  * @property-read int|null $answers_count
+ * @property-read \App\Models\Theme|null $theme
  * @property-read \App\Models\Tournament|null $tournament
  * @method static \Database\Factories\QuestionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Question newModelQuery()
@@ -24,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereQuestion($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Question whereThemeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereUpdatedAt($value)
  * @mixin \Eloquent
  */
@@ -31,13 +36,18 @@ class Question extends Model
 {
     use HasFactory;
 
-    public function tournament()
+    public function tournament(): BelongsTo
     {
         return $this->belongsTo(Tournament::class);
     }
 
-    public function answers()
+    public function answers(): HasMany
     {
         return $this->hasMany(QuestionAnswer::class);
+    }
+
+    public function theme(): BelongsTo
+    {
+        return $this->belongsTo(Theme::class);
     }
 }

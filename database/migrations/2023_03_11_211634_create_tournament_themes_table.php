@@ -9,12 +9,11 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('tournament_themes', function (Blueprint $table) {
             $table->id();
 
-            $table->string('theme_id');
-
-            $table->text('question');
+            $table->unsignedBigInteger('tournament_id');
+            $table->unsignedBigInteger('theme_id');
 
             $table->timestamps();
         });
@@ -22,6 +21,6 @@ return new class extends Migration {
 
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('tournament_themes');
     }
 };

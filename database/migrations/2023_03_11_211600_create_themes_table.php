@@ -9,12 +9,10 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('themes', function (Blueprint $table) {
             $table->id();
 
-            $table->string('theme_id');
-
-            $table->text('question');
+            $table->string('name');
 
             $table->timestamps();
         });
@@ -22,6 +20,6 @@ return new class extends Migration {
 
     public function down()
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('themes');
     }
 };
