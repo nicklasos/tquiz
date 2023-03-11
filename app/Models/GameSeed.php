@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\GameSeed
@@ -22,4 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class GameSeed extends Model
 {
+    public function gameSeedQuestions(): HasMany
+    {
+        return $this->hasMany(GameSeedQuestion::class);
+    }
 }

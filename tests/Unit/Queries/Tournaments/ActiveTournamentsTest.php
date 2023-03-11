@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Queries;
+namespace Tests\Unit\Queries\Tournaments;
 
 use App\Models\Tournament;
-use App\Queries\Tournaments\ActiveTournamentsCachedQuery;
+use App\Queries\Tournaments\Cached\ActiveTournamentsCachedQuery;
 use App\Queries\Tournaments\ActiveTournamentsQuery;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -20,16 +20,10 @@ class ActiveTournamentsTest extends TestCase
 
         $activeTournaments = app(ActiveTournamentsQuery::class);
 
-        $this->assertEquals(
-            $tournament->id,
-            $activeTournaments->get()->last()->id,
-        );
+        $this->assertTrue($tournament->is($activeTournaments->get()->last()));
 
         $activeTournamentsCached = app(ActiveTournamentsCachedQuery::class);
 
-        $this->assertEquals(
-            $tournament->id,
-            $activeTournamentsCached->get()->last()->id,
-        );
+        $this->assertTrue($tournament->is($activeTournamentsCached->get()->last()));
     }
 }

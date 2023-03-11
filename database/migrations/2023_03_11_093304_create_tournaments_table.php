@@ -12,6 +12,7 @@ return new class extends Migration {
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
 
+            $table->integer('questions')->default(6);
             $table->boolean('is_active');
             $table->string('title');
             $table->text('description');

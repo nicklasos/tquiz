@@ -26,4 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class GameSeedQuestion extends Model
 {
+    protected $fillable = [
+        'game_seed_id',
+        'question_id',
+    ];
 }
