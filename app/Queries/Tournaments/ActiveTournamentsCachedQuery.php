@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Queries;
+namespace App\Queries\Tournaments;
 
+use App\Queries\Tournaments\ActiveTournamentsQuery;
 use Illuminate\Support\Facades\Cache;
 
 class ActiveTournamentsCachedQuery

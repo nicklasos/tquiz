@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Queries;
+namespace App\Queries\Tournaments;
 
 use App\Models\Tournament;
 use Illuminate\Database\Eloquent\Collection;

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests\Unit\Queries;
 
 use App\Models\Tournament;
-use App\Queries\ActiveTournamentsCachedQuery;
-use App\Queries\ActiveTournamentsQuery;
+use App\Queries\Tournaments\ActiveTournamentsCachedQuery;
+use App\Queries\Tournaments\ActiveTournamentsQuery;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
