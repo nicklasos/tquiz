@@ -18,8 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Question> $questions
- * @property-read int|null $questions_count
  * @method static Builder|Tournament active()
  * @method static \Database\Factories\TournamentFactory factory($count = null, $state = [])
  * @method static Builder|Tournament newModelQuery()
@@ -36,11 +34,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Tournament extends Model
 {
     use HasFactory;
-
-    public function questions(): HasMany
-    {
-        return $this->hasMany(Question::class);
-    }
 
     public function scopeActive(Builder $builder): void
     {

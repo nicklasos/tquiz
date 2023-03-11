@@ -9,11 +9,8 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('game_seeds', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('tournament_id');
-            $table->string('status')->default('active');
 
             $table->timestamps();
         });
@@ -21,6 +18,6 @@ return new class extends Migration {
 
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('game_seeds');
     }
 };
