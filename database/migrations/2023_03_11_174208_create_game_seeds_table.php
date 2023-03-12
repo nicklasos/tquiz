@@ -12,6 +12,8 @@ return new class extends Migration {
         Schema::create('game_seeds', function (Blueprint $table) {
             $table->id();
 
+            $table->unsignedInteger('tournament_id');
+
             $table->timestamps();
         });
     }

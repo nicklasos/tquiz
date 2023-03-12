@@ -14,7 +14,7 @@ class CreateGameSeed
 {
     public function __construct(
         private readonly ThemesCachedQuery $themes,
-        private readonly QuestionsQuery $questions,
+        private readonly QuestionsQuery    $questions,
     )
     {
     }
@@ -25,15 +25,15 @@ class CreateGameSeed
 
         $questions = $this->questions->randomQuestions($themeIds, $tournament->questions);
 
-        $seed = GameSeed::create();
+        $seed = GameSeed::create([
+            'tournament_id' => $tournament->id,
+        ]);
 
         $seed
             ->gameSeedQuestions()
-            ->createMany($questions->map(function (Question $question) {
-                return [
-                    'question_id' => $question->id,
-                ];
-            }));
+            ->createMany($questions->map(fn(Question $question) => [
+                'question_id' => $question->id,
+            ]));
 
         return $seed;
     }

@@ -12,7 +12,7 @@ class QuestionsQuery
     /**
      * @param array $themeIds
      * @param int $limit
-     * @return Collection
+     * @return Collection<int, Question>
      */
     public function randomQuestions(array $themeIds, int $limit): Collection
     {

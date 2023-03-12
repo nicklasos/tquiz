@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $score
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\GameSeed|null $gameSeed
+ * @property-read \App\Models\TempUser|null $tempUser
  * @property-read \App\Models\Tournament|null $tournament
  * @method static \Illuminate\Database\Eloquent\Builder|Game newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Game newQuery()
@@ -34,8 +36,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Game extends Model
 {
+    protected $fillable = [
+        'temp_user_id',
+        'tournament_id',
+        'game_seed_id',
+    ];
+
     public function tournament(): BelongsTo
     {
         return $this->belongsTo(Tournament::class);
+    }
+
+    public function gameSeed(): BelongsTo
+    {
+        return $this->belongsTo(GameSeed::class);
+    }
+
+    public function tempUser(): BelongsTo
+    {
+        return $this->belongsTo(TempUser::class);
     }
 }
