@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * App\Models\Game
@@ -36,6 +38,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Game extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'temp_user_id',
         'tournament_id',
@@ -55,5 +59,11 @@ class Game extends Model
     public function tempUser(): BelongsTo
     {
         return $this->belongsTo(TempUser::class);
+    }
+
+    public function gameAnswers(): BelongsToMany
+    {
+        return $this->belongsToMany(QuestionAnswer::class, 'game_question_answers')
+            ->withTimestamps();
     }
 }
