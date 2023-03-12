@@ -16,6 +16,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $question_answer_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Game|null $game
+ * @property-read \App\Models\QuestionAnswer|null $questionAnswer
+ * @method static \Database\Factories\GameQuestionAnswerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer query()

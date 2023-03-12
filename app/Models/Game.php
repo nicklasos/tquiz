@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Game
@@ -20,9 +21,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property int $score
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\QuestionAnswer> $gameAnswers
+ * @property-read int|null $game_answers_count
  * @property-read \App\Models\GameSeed|null $gameSeed
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Leaderboard> $leaderboards
+ * @property-read int|null $leaderboards_count
  * @property-read \App\Models\TempUser|null $tempUser
  * @property-read \App\Models\Tournament|null $tournament
+ * @method static \Database\Factories\GameFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Game newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Game newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Game query()
@@ -46,6 +52,22 @@ class Game extends Model
         'game_seed_id',
     ];
 
+    private int $place;
+
+    public function setPlace(int $place): void
+    {
+        $this->place = $place;
+    }
+
+    public function getPlace(): int
+    {
+        if (!$this->place) {
+
+        }
+
+        return $this->place;
+    }
+
     public function tournament(): BelongsTo
     {
         return $this->belongsTo(Tournament::class);
@@ -65,5 +87,10 @@ class Game extends Model
     {
         return $this->belongsToMany(QuestionAnswer::class, 'game_question_answers')
             ->withTimestamps();
+    }
+
+    public function leaderboards(): HasMany
+    {
+        return $this->hasMany(Leaderboard::class);
     }
 }

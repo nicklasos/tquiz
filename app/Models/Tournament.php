@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * App\Models\Tournament
  *
  * @property int $id
+ * @property int $players
  * @property int $questions
  * @property int $is_active
  * @property string $title
@@ -31,6 +32,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static Builder|Tournament whereDescription($value)
  * @method static Builder|Tournament whereId($value)
  * @method static Builder|Tournament whereIsActive($value)
+ * @method static Builder|Tournament wherePlayers($value)
  * @method static Builder|Tournament whereQuestions($value)
  * @method static Builder|Tournament whereTitle($value)
  * @method static Builder|Tournament whereUpdatedAt($value)

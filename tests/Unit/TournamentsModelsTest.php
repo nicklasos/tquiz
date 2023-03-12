@@ -19,7 +19,7 @@ use Tests\TestCase;
 
 class TournamentsModelsTest extends TestCase
 {
-//    use DatabaseTransactions;
+    use DatabaseTransactions;
 
     public function testTournamentsModels()
     {

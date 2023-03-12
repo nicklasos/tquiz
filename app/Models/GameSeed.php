@@ -19,6 +19,7 @@ use Illuminate\Support\Traits\Tappable;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\GameSeedQuestion> $gameSeedQuestions
  * @property-read int|null $game_seed_questions_count
+ * @property-read \App\Models\Tournament|null $tournament
  * @method static \Database\Factories\GameSeedFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeed newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeed newQuery()

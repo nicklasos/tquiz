@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('leaderboards', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('temp_user_id');
+            $table->boolean('is_main_user')->default(false);
+            $table->integer('score')->default(0);
+            $table->integer('place')->nullable();
 
             $table->timestamps();
         });
@@ -20,6 +24,6 @@ return new class extends Migration {
 
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('room_users');
     }
 };
