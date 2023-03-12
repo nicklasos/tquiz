@@ -19,11 +19,13 @@ class TournamentsModelsTest extends TestCase
 
     public function testTournamentsModels()
     {
-        $tournament = Tournament::factory()->create();
+        $theme = Theme::factory()->create();
 
-        $question = Question::factory()
-            ->for($tournament)
+        $tournament = Tournament::factory()
+            ->hasAttached($theme)
             ->create();
+
+        $question = Question::factory()->for($theme)->create();
 
         $wrongAnswers = QuestionAnswer::factory()
             ->for($question)
