@@ -12,8 +12,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * App\Models\GameQuestionAnswer
  *
  * @property int $id
+ * @property int $temp_user_id
  * @property int $game_id
  * @property int $question_answer_id
+ * @property int $seconds
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Game|null $game
@@ -26,12 +28,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereGameId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereQuestionAnswerId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereSeconds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereTempUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class GameQuestionAnswer extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'temp_user_id',
+        'game_id',
+        'question_answer_id',
+        'seconds',
+    ];
 
     public function game(): BelongsTo
     {

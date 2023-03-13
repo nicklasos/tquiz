@@ -19,6 +19,8 @@ class FinishTournament
 
     public function finish(Game $game): void
     {
+        // @todo: use db locks
+
         $otherGames = $this->finishTournamentGames->getGamesForLeaderboard($game);
 
         if ($otherGames->count() + 1 < $game->tournament->players) {

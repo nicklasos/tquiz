@@ -12,8 +12,10 @@ return new class extends Migration {
         Schema::create('game_question_answers', function (Blueprint $table) {
             $table->id();
 
+            $table->unsignedBigInteger('temp_user_id');
             $table->unsignedBigInteger('game_id');
             $table->unsignedBigInteger('question_answer_id');
+            $table->integer('seconds');
 
             $table->timestamps();
         });
