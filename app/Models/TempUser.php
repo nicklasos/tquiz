@@ -12,6 +12,12 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $hash
+ * @property string $name
+ * @property string $ip
+ * @property string|null $user_agent
+ * @property string|null $referer
+ * @property string|null $start_url
+ * @property int $rnd
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Database\Factories\TempUserFactory factory($count = null, $state = [])
@@ -21,10 +27,27 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereHash($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereIp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereReferer($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereRnd($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereStartUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|TempUser whereUserAgent($value)
  * @mixin \Eloquent
  */
 class TempUser extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'hash',
+        'name',
+        'ip',
+        'user_agent',
+        'referer',
+        'start_url',
+        'rnd',
+    ];
 }
