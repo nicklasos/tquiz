@@ -53,4 +53,9 @@ class GameQuestionAnswer extends Model
     {
         return $this->belongsTo(QuestionAnswer::class);
     }
+
+    public function tempUser(): BelongsTo
+    {
+        return $this->belongsTo(TempUser::class);
+    }
 }

@@ -100,14 +100,16 @@ class TournamentsModelsTest extends TestCase
 
 
         $gameQuestionAnswer = GameQuestionAnswer::factory()
+            ->for($tempUser)
             ->for($game)
             ->for($answer)
-            ->create();
+            ->create(['seconds' => 2]);
 
         $gameQuestionAnswer2 = GameQuestionAnswer::factory()
+            ->for($tempUser)
             ->for($game)
             ->for($answer2)
-            ->create();
+            ->create(['seconds' => 1]);
 
 
         $answers = $game->gameAnswers;

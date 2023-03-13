@@ -13,6 +13,8 @@ class TempUserFactory extends Factory
     public function definition(): array
     {
         return [
+            'name' => $this->faker->name,
+            'ip' => $this->faker->ipv4,
             'hash' => app(TempUserId::class)->generate(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
