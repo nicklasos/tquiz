@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Actions\Quiz;
+namespace Tests\Unit\Actions\Trivia;
 
-use App\Actions\Quiz\AnswerQuestion;
+use App\Actions\Trivia\AnswerQuestion;
 use App\Models\Game;
 use App\Models\GameSeed;
 use App\Models\GameSeedQuestion;
@@ -20,7 +20,7 @@ class AnswerQuestionTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testBasic()
+    public function testAnswer()
     {
         $theme = Theme::factory()->create();
 

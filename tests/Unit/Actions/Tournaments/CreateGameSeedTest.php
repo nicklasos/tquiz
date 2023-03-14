@@ -14,7 +14,7 @@ use Tests\TestCase;
 
 class CreateGameSeedTest extends TestCase
 {
-//    use DatabaseTransactions;
+    use DatabaseTransactions;
 
     public function testCreate()
     {

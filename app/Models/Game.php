@@ -61,10 +61,6 @@ class Game extends Model
 
     public function getPlace(): int
     {
-        if (!$this->place) {
-
-        }
-
         return $this->place;
     }
 

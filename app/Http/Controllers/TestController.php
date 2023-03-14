@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Services\TempUsers\TempUserStorage;
-
 class TestController extends Controller
 {
-    public function __invoke(TempUserStorage $tempUserStorage)
+    public function __invoke()
     {
-        dump($tempUserStorage->getModelWithId()->id);
-
         return 'ok';
     }
 }

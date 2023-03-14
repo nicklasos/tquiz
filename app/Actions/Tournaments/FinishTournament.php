@@ -23,10 +23,10 @@ class FinishTournament
 
         $otherGames = $this->finishTournamentGames->getGamesForLeaderboard($game);
 
-        if ($otherGames->count() + 1 < $game->tournament->players) {
-            $game->status = 'waiting_participants';
-            $game->save();
+        $game->status = 'waiting_participants';
+        $game->save();
 
+        if ($otherGames->count() + 1 < $game->tournament->players) {
             return;
         }
 

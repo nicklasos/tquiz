@@ -13,19 +13,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @property int $id
  * @property int $temp_user_id
- * @property int $game_id
+ * @property int $game_seed_id
  * @property int $question_answer_id
  * @property int $seconds
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Game|null $game
+ * @property-read \App\Models\GameSeed|null $gameSeed
  * @property-read \App\Models\QuestionAnswer|null $questionAnswer
+ * @property-read \App\Models\TempUser|null $tempUser
  * @method static \Database\Factories\GameQuestionAnswerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer query()
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereGameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereGameSeedId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereQuestionAnswerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereSeconds($value)
@@ -39,14 +40,14 @@ class GameQuestionAnswer extends Model
 
     protected $fillable = [
         'temp_user_id',
-        'game_id',
+        'game_seed_id',
         'question_answer_id',
         'seconds',
     ];
 
-    public function game(): BelongsTo
+    public function gameSeed(): BelongsTo
     {
-        return $this->belongsTo(Game::class);
+        return $this->belongsTo(GameSeed::class);
     }
 
     public function questionAnswer(): BelongsTo

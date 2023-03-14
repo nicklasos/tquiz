@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->id();
 
             $table->unsignedBigInteger('temp_user_id');
-            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('game_seed_id');
             $table->unsignedBigInteger('question_answer_id');
             $table->integer('seconds');
 
