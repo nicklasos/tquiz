@@ -40,7 +40,6 @@ class FinishTournament
                 return $game;
             });
 
-
         foreach ($allGames as $currentGame) {
 
             if ($currentGame->status === 'waiting_participants') {
@@ -50,6 +49,7 @@ class FinishTournament
 
                 foreach ($allGames as $leaderboardGame) {
                     $this->createLeaderboard->create(
+                        $currentGame->id,
                         $leaderboardGame,
                         $leaderboardGame->temp_user_id === $currentGame->temp_user_id,
                     );

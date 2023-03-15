@@ -49,4 +49,9 @@ class GameSeed extends Model
     {
         return $this->belongsTo(Tournament::class);
     }
+
+    public function gameSeedAnswers()
+    {
+
+    }
 }

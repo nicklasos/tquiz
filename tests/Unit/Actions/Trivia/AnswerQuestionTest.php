@@ -49,8 +49,8 @@ class AnswerQuestionTest extends TestCase
 
         $answerQuestion = app(AnswerQuestion::class);
 
-        $gameQuestionAnswer = $answerQuestion->answer($tempUser, $game, $answer);
+        $gameQuestionAnswer = $answerQuestion->answer($tempUser, $gameSeed->id, $answer->id);
 
-        $this->assertEquals($game->id, $gameQuestionAnswer->game_id);
+        $this->assertEquals($gameSeed->id, $gameQuestionAnswer->game_seed_id);
     }
 }

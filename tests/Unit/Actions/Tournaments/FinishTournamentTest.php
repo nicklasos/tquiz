@@ -47,8 +47,6 @@ class FinishTournamentTest extends TestCase
 
         $leaderboards = $game->leaderboards;
 
-        dd($leaderboards->toArray());
-
         $this->assertEquals(3, $leaderboards->last()->temp_user_id);
     }
 }
