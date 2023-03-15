@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 class TempUserAuth
 {
     public function __construct(
-        private readonly TempUserStorage $tempUserStorage,
-        private readonly CreateTempUser $createTempUser,
+        private readonly TempUserSession $tempUserStorage,
+        private readonly CreateTempUser  $createTempUser,
     )
     {
     }

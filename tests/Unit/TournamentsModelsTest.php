@@ -8,6 +8,7 @@ use App\Models\Game;
 use App\Models\GameQuestionAnswer;
 use App\Models\GameSeed;
 use App\Models\GameSeedQuestion;
+use App\Models\GameStatus;
 use App\Models\Question;
 use App\Models\QuestionAnswer;
 use App\Models\TempUser;
@@ -117,5 +118,24 @@ class TournamentsModelsTest extends TestCase
 //        dd($answers);
 //        $this->assertInstanceOf(Carbon::class, $answers[0]->pivot->created_at);
         $this->assertTrue(true);
+    }
+
+    public function testGameEnum()
+    {
+        $tournament = Tournament::factory()->create();
+
+        $tempUser = TempUser::factory()->create();
+
+        $seed = GameSeed::factory()
+            ->for($tournament)
+            ->create();
+
+        $game = Game::factory()
+            ->for($tournament)
+            ->for($seed)
+            ->for($tempUser)
+            ->create();
+
+        $this->assertEquals(GameStatus::Playing, $game->status);
     }
 }

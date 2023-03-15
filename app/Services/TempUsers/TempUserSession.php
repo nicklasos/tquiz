@@ -6,7 +6,7 @@ namespace App\Services\TempUsers;
 
 use App\Models\TempUser;
 
-class TempUserStorage
+class TempUserSession
 {
     private const USER_ID = 'temp_user_id';
 
@@ -14,17 +14,12 @@ class TempUserStorage
 
     public function setId(int $id): void
     {
-        $this->id = $id;
-        session([self::USER_ID => $id]);
+        session([self::USER_ID => $this->id = $id]);
     }
 
     public function getId(): int
     {
-        if (!$this->id) {
-            $this->id = session(self::USER_ID, 0);
-        }
-
-        return $this->id;
+        return $this->id ??= session(self::USER_ID, 0);
     }
 
     public function getModelWithId(): TempUser

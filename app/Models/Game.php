@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $tournament_id
  * @property int $game_seed_id
  * @property int $temp_user_id
- * @property string $status
+ * @property \App\Models\GameStatus $status
  * @property int $place
  * @property int $score
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -52,6 +52,10 @@ class Game extends Model
         'temp_user_id',
         'tournament_id',
         'game_seed_id',
+    ];
+
+    protected $casts = [
+        'status' => GameStatus::class,
     ];
 
     private int $place;

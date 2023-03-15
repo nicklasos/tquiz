@@ -11,14 +11,14 @@ use App\Queries\Tournaments\GameQuery;
 use App\Queries\Tournaments\TournamentQuery;
 use App\Queries\Trivia\GamePlayQuery;
 use App\Queries\Trivia\NextQuestionQuery;
-use App\Services\TempUsers\TempUserStorage;
+use App\Services\TempUsers\TempUserSession;
 
 class PlayTournamentController extends Controller
 {
     public function __construct(
         private readonly GamePlayQuery     $gamePlayQuery,
         private readonly AnswerQuestion    $answerQuestion,
-        private readonly TempUserStorage   $tempUserStorage,
+        private readonly TempUserSession   $tempUserStorage,
         private readonly NextQuestionQuery $nextQuestion,
         private readonly FinishTournament  $finishTournament,
         private readonly GameQuery         $gameQuery,

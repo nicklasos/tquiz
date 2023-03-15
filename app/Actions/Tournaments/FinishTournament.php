@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Actions\Tournaments;
 
 use App\Models\Game;
+use App\Models\GameStatus;
 use App\Queries\Tournaments\FinishTournamentGamesQuery;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -23,7 +24,7 @@ class FinishTournament
 
         $otherGames = $this->finishTournamentGames->getGamesForLeaderboard($game);
 
-        $game->status = 'waiting_participants';
+        $game->status = GameStatus::WaitingParticipants;
         $game->save();
 
         if ($otherGames->count() + 1 < $game->tournament->players) {
@@ -42,10 +43,10 @@ class FinishTournament
 
         foreach ($allGames as $currentGame) {
 
-            if ($currentGame->status === 'waiting_participants') {
+            if ($currentGame->status === GameStatus::WaitingParticipants) {
 
                 $currentGame->place = $currentGame->getPlace();
-                $currentGame->status = 'done';
+                $currentGame->status = GameStatus::Done;
                 $currentGame->save();
 
                 foreach ($allGames as $leaderboardGame) {
