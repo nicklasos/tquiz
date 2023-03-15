@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('temp_user_id');
 
             $table->string('status')->default('playing');
+            $table->integer('place')->default(0);
             $table->integer('score')->default(0);
 
             $table->timestamps();

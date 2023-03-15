@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $game_seed_id
  * @property int $temp_user_id
  * @property string $status
+ * @property int $place
  * @property int $score
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -35,6 +36,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Game whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Game whereGameSeedId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Game whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Game wherePlace($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Game whereScore($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Game whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Game whereTempUserId($value)

@@ -44,6 +44,7 @@ class FinishTournament
 
             if ($currentGame->status === 'waiting_participants') {
 
+                $currentGame->place = $currentGame->getPlace();
                 $currentGame->status = 'done';
                 $currentGame->save();
 

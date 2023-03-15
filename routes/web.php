@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Tournaments\JoinTournamentController;
@@ -27,6 +28,7 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
         [PlayTournamentController::class, 'answerQuestion'],
     );
 
+    Route::get('history', HistoryController::class)->name('history');
 
 
     /*
