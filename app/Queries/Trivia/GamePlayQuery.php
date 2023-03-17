@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Queries\Trivia;
 
+use App\Models\Game;
 use App\Models\Question;
 
 class GamePlayQuery
 {
-    public function question(int $gameSeedId, int $questionNumber): Question
+    public function question(Game $game, int $questionNumber): Question
     {
         return Question::query()
             ->with('answers')
@@ -19,7 +20,7 @@ class GamePlayQuery
                 '=',
                 'questions.id'
             )
-            ->where('game_seed_questions.game_seed_id', $gameSeedId)
+            ->where('game_seed_questions.game_seed_id', $game->game_seed_id)
             ->orderBy('game_seed_questions.id')
             ->limit(1)
             ->offset($questionNumber - 1)

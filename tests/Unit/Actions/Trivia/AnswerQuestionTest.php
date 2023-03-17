@@ -53,8 +53,7 @@ class AnswerQuestionTest extends TestCase
         $answerQuestion = app(AnswerQuestion::class);
 
         $gameQuestionAnswer = $answerQuestion->answer(
-            $tempUser,
-            $gameSeed->id,
+            $game,
             $answer->id,
             4,
         );

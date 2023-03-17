@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Services\Trivia;
 
+use App\Models\Game;
 use App\Services\Trivia\AnswerTimingSession;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
@@ -16,15 +18,18 @@ class AnswerTimingTest extends TestCase
     {
         $timing = app(AnswerTimingSession::class);
 
-        $timing->set(1, 1);
+        $game = new Game();
+        $game->id = 1;
+
+        $timing->set($game);
 
         sleep(2);
 
-        $seconds = $timing->getSeconds(1);
+        $seconds = $timing->getSeconds($game);
 
         $this->assertEquals(3, $seconds);
 
-        $seconds = $timing->getSeconds(1);
+        $seconds = $timing->getSeconds($game);
 
         $this->assertEquals(0, $seconds);
     }

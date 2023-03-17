@@ -22,6 +22,6 @@ class JoinTournamentController extends Controller
             $tournament,
         );
 
-        return to_route('tournament.play', $game->game_seed_id);
+        return to_route('tournament.play', $game);
     }
 }

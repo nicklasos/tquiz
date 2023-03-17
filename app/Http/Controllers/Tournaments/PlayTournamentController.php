@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Tournaments;
 use App\Actions\Tournaments\FinishTournament;
 use App\Actions\Trivia\AnswerQuestion;
 use App\Http\Controllers\Controller;
+use App\Models\Game;
 use App\Queries\Tournaments\GameQuery;
 use App\Queries\Tournaments\LeaderboardQuery;
 use App\Queries\Trivia\GamePlayQuery;
@@ -19,63 +20,45 @@ class PlayTournamentController extends Controller
     public function __construct(
         private readonly GamePlayQuery       $gamePlayQuery,
         private readonly AnswerQuestion      $answerQuestion,
-        private readonly TempUserSession     $tempUserSession,
         private readonly NextQuestionQuery   $nextQuestion,
         private readonly FinishTournament    $finishTournament,
-        private readonly GameQuery           $gameQuery,
         private readonly AnswerTimingSession $answerTimingSession,
         private readonly LeaderboardQuery    $leaderboardQuery,
     )
     {
     }
 
-    public function showQuestion(int $gameSeedId)
+    public function showQuestion(Game $game)
     {
-        $question = $this->gamePlayQuery->question($gameSeedId, 1);
+        $question = $this->gamePlayQuery->question($game, 1);
 
-        $this->answerTimingSession->set($gameSeedId);
+        $this->answerTimingSession->set($game);
 
-        return view('tournaments.play', compact(
-            'question',
-            'gameSeedId',
-        ));
+        return view('tournaments.play', compact('question', 'game'));
     }
 
-    public function answerQuestion(int $gameSeedId, int $answerId)
+    public function answerQuestion(Game $game, int $answerId)
     {
         $this->answerQuestion->answer(
-            $this->tempUserSession->getModelWithId(),
-            $gameSeedId,
+            $game,
             $answerId,
-            $this->answerTimingSession->getSeconds($gameSeedId),
+            $this->answerTimingSession->getSeconds($game),
         );
 
-        $nextQuestionNumber = $this->nextQuestion->number(
-            $this->tempUserSession->getModelWithId(),
-            $gameSeedId,
-        );
+        $nextQuestionNumber = $this->nextQuestion->number($game);
 
         if (!$nextQuestionNumber) {
-            $this->finishTournament->finish($this->gameQuery->bySeedAndUser(
-                $this->tempUserSession->getModelWithId(),
-                $gameSeedId,
-            ));
+            $this->finishTournament->finish($game);
 
-            $leaderboards = $this->leaderboardQuery->getByUserAndSeedId(
-                $this->tempUserSession->getModelWithId(),
-                $gameSeedId,
-            );
+            $leaderboards = $this->leaderboardQuery->getByGame($game);
 
             return 'End!';
         }
 
-        $question = $this->gamePlayQuery->question($gameSeedId, $nextQuestionNumber);
+        $question = $this->gamePlayQuery->question($game, $nextQuestionNumber);
 
-        $this->answerTimingSession->set($gameSeedId);
+        $this->answerTimingSession->set($game);
 
-        return view('tournaments.question', compact(
-            'gameSeedId',
-            'question',
-        ));
+        return view('tournaments.question', compact('game', 'question'));
     }
 }

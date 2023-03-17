@@ -20,11 +20,11 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     Route::post('tournament/{tournament}', JoinTournamentController::class)
         ->name('tournament.join');
 
-    Route::get('tournament/{gameSeedId}/play', [PlayTournamentController::class, 'showQuestion'])
+    Route::get('tournament/{game}/play', [PlayTournamentController::class, 'showQuestion'])
         ->name('tournament.play');
 
     Route::post(
-        'tournament/{gameSeedId}/answer/{answerId}',
+        'tournament/{game}/answer/{answerId}',
         [PlayTournamentController::class, 'answerQuestion'],
     );
 

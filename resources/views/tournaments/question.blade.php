@@ -4,7 +4,7 @@
     @if ($answer->is_correct)
         <b>
             @endif
-            <button class="js-answer-button" data-game-seed-id="{{ $gameSeedId }}" data-answer-id="{{ $answer->id }}">
+            <button class="js-answer-button" data-game-id="{{ $game->id }}" data-answer-id="{{ $answer->id }}">
                 {{ $answer->answer }}
             </button>
             @if ($answer->is_correct)

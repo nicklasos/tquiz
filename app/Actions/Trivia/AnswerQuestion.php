@@ -20,8 +20,7 @@ class AnswerQuestion
     }
 
     public function answer(
-        TempUser $tempUser,
-        int      $gameSeedId,
+        Game     $game,
         int      $answerId,
         int      $seconds,
     ): GameQuestionAnswer
@@ -29,17 +28,12 @@ class AnswerQuestion
         $questionAnswer = $this->questionAnswerQuery->find($answerId);
 
         if ($questionAnswer->is_correct) {
-
-            $game = Game::query()
-                ->where('temp_user_id', $tempUser->id)
-                ->where('game_seed_id', $gameSeedId)->firstOrFail();
-
             $this->addScore->add($game, 10 + $seconds * 10);
         }
 
         return GameQuestionAnswer::create([
-            'temp_user_id' => $tempUser->id,
-            'game_seed_id' => $gameSeedId,
+            'temp_user_id' => $game->temp_user_id,
+            'game_seed_id' => $game->game_seed_id,
             'question_answer_id' => $answerId,
             'seconds' => $seconds,
         ]);

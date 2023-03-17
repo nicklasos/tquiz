@@ -4,7 +4,7 @@
 
     <div id="question-container">
 
-        @include('tournaments.question', [$question, $gameSeedId])
+        @include('tournaments.question', [$question, $game])
 
     </div>
 @endsection

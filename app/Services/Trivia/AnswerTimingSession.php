@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace App\Services\Trivia;
 
+use App\Models\Game;
 use Carbon\Carbon;
 
 class AnswerTimingSession
 {
-    public function set(int $gameSeedId): void
+    public function set(Game $game): void
     {
-        session(["question:{$gameSeedId}" => Carbon::now()->toDateTimeString()]);
+        session(["question:{$game->id}" => Carbon::now()->toDateTimeString()]);
     }
 
-    public function getSeconds(int $gameSeedId): int
+    public function getSeconds(Game $game): int
     {
-        $date = session("question:{$gameSeedId}");
+        $date = session("question:{$game->id}");
 
         $diff = Carbon::now()->diffInSeconds(Carbon::parse($date));
 
-        session()->remove("question:{$gameSeedId}");
+        session()->remove("question:{$game->id}");
 
         return $diff
             ? $diff + 1 // add "internet" second

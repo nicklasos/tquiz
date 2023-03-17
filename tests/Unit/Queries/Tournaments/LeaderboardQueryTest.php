@@ -49,7 +49,7 @@ class LeaderboardQueryTest extends TestCase
 
         $query = app(LeaderboardQuery::class);
 
-        $leaderboards = $query->getByUserAndSeedId(new TempUser(['id' => 3]), $seed->id);
+        $leaderboards = $query->getByGame($game);
 
         $this->assertEquals(3, $leaderboards->count());
     }

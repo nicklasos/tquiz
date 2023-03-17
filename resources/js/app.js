@@ -43,11 +43,11 @@ function addMatchingEventListener(element, eventType, selector, listener, ...opt
 let questionBox = document.getElementById('question-container');
 
 addMatchingEventListener(questionBox, 'click', '.js-answer-button', function(event) {
-    let gameSeedId = event.target.attributes['data-game-seed-id'].value;
+    let gameId = event.target.attributes['data-game-id'].value;
     let answerId = event.target.attributes['data-answer-id'].value;
 
     update({
-        url: `/tournament/${gameSeedId}/answer/${answerId}`,
+        url: `/tournament/${gameId}/answer/${answerId}`,
         method: 'POST',
         id: 'question-container',
         onError: function (err) {

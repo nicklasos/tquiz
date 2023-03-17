@@ -4,24 +4,19 @@ declare(strict_types=1);
 
 namespace App\Queries\Trivia;
 
+use App\Models\Game;
 use App\Models\GameQuestionAnswer;
-use App\Models\TempUser;
-use App\Queries\Tournaments\TournamentQuery;
 
 class NextQuestionQuery
 {
-    public function __construct(private readonly TournamentQuery $tournamentQuery)
-    {
-    }
-
-    public function number(TempUser $tempUser, int $gameSeedId): ?int
+    public function number(Game $game): ?int
     {
         $answersCount = GameQuestionAnswer::query()
-            ->where('temp_user_id', $tempUser->id)
-            ->where('game_seed_id', $gameSeedId)
+            ->where('temp_user_id', $game->temp_user_id)
+            ->where('game_seed_id', $game->game_seed_id)
             ->count();
 
-        $max = $this->tournamentQuery->bySeedId($gameSeedId)->questions;
+        $max = $game->tournament->questions;
 
         if ($answersCount >= $max) {
             return null;
