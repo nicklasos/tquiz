@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Actions\Trivia;
+namespace Tests\Unit\Actions\Tournaments;
 
-use App\Actions\Trivia\AnswerQuestion;
+use App\Actions\Tournaments\AddScore;
 use App\Models\Game;
 use App\Models\GameSeed;
 use App\Models\GameSeedQuestion;
@@ -16,12 +16,14 @@ use App\Models\Tournament;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
-class AnswerQuestionTest extends TestCase
+class AddScoreTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testAnswer()
+    public function testAdd()
     {
+        $add = app(AddScore::class);
+
         $theme = Theme::factory()->create();
 
         $tournament = Tournament::factory()
@@ -41,7 +43,6 @@ class AnswerQuestionTest extends TestCase
             ->for($question)
             ->create();
 
-
         $tempUser = TempUser::factory()->create();
 
         $game = Game::factory()
@@ -50,15 +51,8 @@ class AnswerQuestionTest extends TestCase
             ->for($tempUser)
             ->create(['score' => 3]);
 
-        $answerQuestion = app(AnswerQuestion::class);
+        $add->add($game, 34);
 
-        $gameQuestionAnswer = $answerQuestion->answer(
-            $tempUser,
-            $gameSeed->id,
-            $answer->id,
-            4,
-        );
-
-        $this->assertEquals($gameSeed->id, $gameQuestionAnswer->game_seed_id);
+        $this->assertEquals(37, $game->score);
     }
 }

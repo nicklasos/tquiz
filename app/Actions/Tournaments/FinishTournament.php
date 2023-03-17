@@ -36,7 +36,7 @@ class FinishTournament
             ->add($game)
             ->sortByDesc('score')
             ->map(function (Game $game, $i) {
-                $game->setPlace($i + 1);
+                $game->setLeaderboardPlace($i + 1);
 
                 return $game;
             });
@@ -45,7 +45,7 @@ class FinishTournament
 
             if ($currentGame->status === GameStatus::WaitingParticipants) {
 
-                $currentGame->place = $currentGame->getPlace();
+                $currentGame->place = $currentGame->getLeaderboardPlace();
                 $currentGame->status = GameStatus::Done;
                 $currentGame->save();
 

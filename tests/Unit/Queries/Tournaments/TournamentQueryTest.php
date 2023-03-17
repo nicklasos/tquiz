@@ -22,7 +22,7 @@ class TournamentQueryTest extends TestCase
 
         $tournament = Tournament::factory()
             ->hasAttached($theme)
-            ->create();
+            ->create(['questions' => 16]);
 
         $question = Question::factory()
             ->for($theme)

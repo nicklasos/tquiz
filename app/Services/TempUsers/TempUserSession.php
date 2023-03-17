@@ -14,12 +14,18 @@ class TempUserSession
 
     public function setId(int $id): void
     {
-        session([self::USER_ID => $this->id = $id]);
+        $this->id = $id;
+
+        session([self::USER_ID => $id]);
     }
 
     public function getId(): int
     {
-        return $this->id ??= session(self::USER_ID, 0);
+        if (!$this->id) {
+            $this->id = session(self::USER_ID, 0);
+        }
+
+        return $this->id;
     }
 
     public function getModelWithId(): TempUser

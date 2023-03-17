@@ -58,16 +58,16 @@ class Game extends Model
         'status' => GameStatus::class,
     ];
 
-    private int $place;
+    private int $leaderboardPlace;
 
-    public function setPlace(int $place): void
+    public function setLeaderboardPlace(int $leaderboardPlace): void
     {
-        $this->place = $place;
+        $this->leaderboardPlace = $leaderboardPlace;
     }
 
-    public function getPlace(): int
+    public function getLeaderboardPlace(): int
     {
-        return $this->place;
+        return $this->leaderboardPlace;
     }
 
     public function tournament(): BelongsTo

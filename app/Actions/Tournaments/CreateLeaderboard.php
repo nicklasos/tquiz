@@ -15,7 +15,7 @@ class CreateLeaderboard
             'temp_user_id' => $game->temp_user_id,
             'game_id' => $forGameId,
             'score' => $game->score,
-            'place' => $game->getPlace(),
+            'place' => $game->getLeaderboardPlace(),
             'is_main_user' => $isMainUser,
         ]);
     }

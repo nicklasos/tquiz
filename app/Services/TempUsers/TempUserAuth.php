@@ -6,13 +6,13 @@ namespace App\Services\TempUsers;
 
 use App\Actions\TempUsers\CreateTempUser;
 use App\Actions\TempUsers\CreateTempUserDto;
-use App\Services\IP;
+use App\Services\Geo\IP;
 use Illuminate\Http\Request;
 
 class TempUserAuth
 {
     public function __construct(
-        private readonly TempUserSession $tempUserStorage,
+        private readonly TempUserSession $tempUserSession,
         private readonly CreateTempUser  $createTempUser,
     )
     {
@@ -20,7 +20,7 @@ class TempUserAuth
 
     public function authorize(Request $request): void
     {
-        if ($this->tempUserStorage->getId()) {
+        if ($this->tempUserSession->getId()) {
             return;
         }
 
@@ -35,6 +35,6 @@ class TempUserAuth
 
         $tempUser = $this->createTempUser->create($createTempUserDto);
 
-        $this->tempUserStorage->setId($tempUser->id);
+        $this->tempUserSession->setId($tempUser->id);
     }
 }
