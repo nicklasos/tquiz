@@ -8,11 +8,9 @@ use App\Actions\Tournaments\FinishTournament;
 use App\Actions\Trivia\AnswerQuestion;
 use App\Http\Controllers\Controller;
 use App\Models\Game;
-use App\Queries\Tournaments\GameQuery;
 use App\Queries\Tournaments\LeaderboardQuery;
 use App\Queries\Trivia\GamePlayQuery;
 use App\Queries\Trivia\NextQuestionQuery;
-use App\Services\TempUsers\TempUserSession;
 use App\Services\Trivia\AnswerTimingSession;
 
 class PlayTournamentController extends Controller

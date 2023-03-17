@@ -7,7 +7,6 @@ namespace App\Actions\Trivia;
 use App\Actions\Tournaments\AddScore;
 use App\Models\Game;
 use App\Models\GameQuestionAnswer;
-use App\Models\TempUser;
 use App\Queries\Trivia\QuestionAnswerQuery;
 
 class AnswerQuestion
