@@ -22,7 +22,7 @@ class AnswerTimingTest extends TestCase
 
         $seconds = $timing->getSeconds(1);
 
-        $this->assertEquals(2, $seconds);
+        $this->assertEquals(3, $seconds);
 
         $seconds = $timing->getSeconds(1);
 

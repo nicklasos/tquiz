@@ -21,6 +21,8 @@ class AnswerTimingSession
 
         session()->remove("question:{$gameSeedId}");
 
-        return $diff + 1; // add "internet" second
+        return $diff
+            ? $diff + 1 // add "internet" second
+            : 0;
     }
 }

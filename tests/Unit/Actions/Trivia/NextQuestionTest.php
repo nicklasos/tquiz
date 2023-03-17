@@ -77,13 +77,13 @@ class NextQuestionTest extends TestCase
             $tempUser, $gameSeed->id
         ));
 
-        $answerAction->answer($tempUser, $gameSeed->id, $answer->id);
+        $answerAction->answer($tempUser, $gameSeed->id, $answer->id, 1);
 
         $this->assertEquals(2, $nextQuestion->number(
             $tempUser, $gameSeed->id
         ));
 
-        $answerAction->answer($tempUser, $gameSeed->id, $answer->id);
+        $answerAction->answer($tempUser, $gameSeed->id, $answer->id, 1);
 
         $this->assertNull($nextQuestion->number(
             $tempUser, $gameSeed->id
