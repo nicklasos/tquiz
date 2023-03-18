@@ -5,6 +5,7 @@
     <br>
 @empty
     Waiting for other players
+    <br>
 @endforelse
 
 <a href="{{ route('home') }}">Play more</a>

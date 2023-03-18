@@ -31,9 +31,9 @@ class FinishTournamentTest extends TestCase
             ->for($seed)
             ->count(3)
             ->sequence(
-                ['temp_user_id' => 1, 'score' => 3],
-                ['temp_user_id' => 2, 'score' => 4],
-                ['temp_user_id' => 3, 'score' => 2, 'status' => 'playing'],
+                ['temp_user_id' => 1, 'score' => 129],
+                ['temp_user_id' => 2, 'score' => 40],
+                ['temp_user_id' => 3, 'score' => 70, 'status' => 'playing'],
             )
             ->create([
                 'status' => 'waiting_participants',
@@ -47,8 +47,8 @@ class FinishTournamentTest extends TestCase
 
         $leaderboards = $game->leaderboards;
 
-        $this->assertEquals(3, $game->place);
+        $this->assertEquals(2, $game->place);
 
-        $this->assertEquals(3, $leaderboards->last()->temp_user_id);
+        $this->assertEquals(2, $leaderboards->last()->temp_user_id);
     }
 }

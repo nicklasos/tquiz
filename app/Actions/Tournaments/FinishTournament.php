@@ -35,6 +35,7 @@ class FinishTournament
         $allGames = $otherGames
             ->add($game)
             ->sortByDesc('score')
+            ->values()
             ->map(function (Game $game, $i) {
                 $game->setLeaderboardPlace($i + 1);
 
