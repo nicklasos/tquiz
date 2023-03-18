@@ -39,6 +39,7 @@ class FinishTournamentTest extends TestCase
                 'status' => 'waiting_participants',
             ]);
 
+        /** @var Game $game */
         $game = $games->last();
 
         $finishTournament = app(FinishTournament::class);

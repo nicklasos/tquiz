@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->text('question');
 
             $table->timestamps();
+
+            $table->index('theme_id');
         });
     }
 

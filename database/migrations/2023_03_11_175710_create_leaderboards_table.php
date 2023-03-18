@@ -19,6 +19,8 @@ return new class extends Migration {
             $table->integer('place')->nullable();
 
             $table->timestamps();
+
+            $table->index('game_id');
         });
     }
 

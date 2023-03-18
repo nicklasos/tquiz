@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->unsignedBigInteger('theme_id');
 
             $table->timestamps();
+
+            $table->index(['theme_id', 'tournament_id']);
         });
     }
 

@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->integer('seconds');
 
             $table->timestamps();
+
+            $table->index(['temp_user_id', 'game_seed_id']);
         });
     }
 

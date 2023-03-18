@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->unsignedBigInteger('question_id');
 
             $table->timestamps();
+
+            $table->index(['question_id', 'game_seed_id']);
         });
     }
 

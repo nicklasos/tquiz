@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->text('answer');
 
             $table->timestamps();
+
+            $table->index('question_id');
         });
     }
 

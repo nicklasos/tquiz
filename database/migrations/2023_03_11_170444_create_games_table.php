@@ -21,6 +21,8 @@ return new class extends Migration {
             $table->integer('score')->default(0);
 
             $table->timestamps();
+
+            $table->index(['tournament_id', 'game_seed_id', 'temp_user_id']);
         });
     }
 
