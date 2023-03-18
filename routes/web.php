@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['temp_user.auth']], function () {
 
-    Route::get('/', HomeController::class);
+    Route::get('/', HomeController::class)->name('home');
 
 
     /*

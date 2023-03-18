@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\Leaderboard
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $place
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\TempUser|null $tempUsers
  * @method static \Database\Factories\LeaderboardFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard newQuery()
@@ -43,4 +45,9 @@ class Leaderboard extends Model
         'place',
         'is_main_user',
     ];
+
+    public function tempUser(): BelongsTo
+    {
+        return $this->belongsTo(TempUser::class);
+    }
 }

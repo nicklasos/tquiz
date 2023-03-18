@@ -50,7 +50,7 @@ class PlayTournamentController extends Controller
 
             $leaderboards = $this->leaderboardQuery->getByGame($game);
 
-            return 'End!';
+            return view('tournaments.leaderboard', compact('leaderboards'));
         }
 
         $question = $this->gamePlayQuery->question($game, $nextQuestionNumber);

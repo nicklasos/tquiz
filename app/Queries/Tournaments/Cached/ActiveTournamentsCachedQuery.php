@@ -15,8 +15,10 @@ class ActiveTournamentsCachedQuery
 
     public function get()
     {
-        return Cache::remember('query:active-tournaments', 60 * 5, function () {
-            return $this->query->get();
-        });
+        return Cache::remember(
+            'query:active-tournaments',
+            60 * 5,
+            fn() => $this->query->get(),
+        );
     }
 }

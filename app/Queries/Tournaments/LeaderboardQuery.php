@@ -13,9 +13,9 @@ class LeaderboardQuery
     public function getByGame(Game $game): Collection
     {
         return Leaderboard::query()
-            ->leftJoin('games', 'games.id', '=', 'leaderboards.game_id')
-            ->where('games.game_seed_id', $game->game_seed_id)
-            ->where('games.temp_user_id', $game->temp_user_id)
+            ->with('tempUser')
+            ->where('game_id', $game->id)
+            ->orderByDesc('score')
             ->get();
     }
 }
