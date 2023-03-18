@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 class TempUserAuth
 {
     public function __construct(
-        private readonly TempUserSession $tempUserSession,
         private readonly CreateTempUser  $createTempUser,
     )
     {
@@ -20,7 +19,7 @@ class TempUserAuth
 
     public function authorize(Request $request): void
     {
-        if ($this->tempUserSession->getId()) {
+        if (\App\Facades\TempUserSession::getId()) {
             return;
         }
 
@@ -35,6 +34,6 @@ class TempUserAuth
 
         $tempUser = $this->createTempUser->create($createTempUserDto);
 
-        $this->tempUserSession->setId($tempUser->id);
+        \App\Facades\TempUserSession::setId($tempUser->id);
     }
 }

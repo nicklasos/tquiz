@@ -12,6 +12,7 @@ use App\Queries\Tournaments\LeaderboardQuery;
 use App\Queries\Trivia\GamePlayQuery;
 use App\Queries\Trivia\NextQuestionQuery;
 use App\Services\Trivia\AnswerTimingSession;
+use Gate;
 
 class PlayTournamentController extends Controller
 {
@@ -28,6 +29,14 @@ class PlayTournamentController extends Controller
 
     public function showQuestion(Game $game)
     {
+        if (!Gate::allows('can-play-game', $game)) {
+            abort(403);
+        }
+
+        if ($this->gamePlayQuery->isAlreadyPlaying($game)) {
+            return to_route('home');
+        }
+
         $question = $this->gamePlayQuery->question($game, 1);
 
         $this->answerTimingSession->set($game);
@@ -37,6 +46,12 @@ class PlayTournamentController extends Controller
 
     public function answerQuestion(Game $game, int $answerId)
     {
+        if (!Gate::allows('can-play-game', $game)) {
+            abort(403);
+        }
+
+        // @todo: check is question already answered
+
         $this->answerQuestion->answer(
             $game,
             $answerId,

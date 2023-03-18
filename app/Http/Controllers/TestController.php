@@ -8,6 +8,10 @@ class TestController extends Controller
 {
     public function __invoke()
     {
+        $allows = \Gate::allows('show-test');
+
+        dump($allows);
+
         return 'ok';
     }
 }
