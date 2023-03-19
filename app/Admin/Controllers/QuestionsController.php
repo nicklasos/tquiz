@@ -68,6 +68,9 @@ class QuestionsController extends AdminController
 
         $form->textarea('question', __('Question'));
 
+        $form->mediaLibrary('image', 'Image')
+            ->responsive()
+            ->removable();
 
         $form->hasMany('answers', 'Answers', function (Form\NestedForm $form) {
             $form->text('answer');
