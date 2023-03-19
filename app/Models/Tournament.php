@@ -42,6 +42,11 @@ class Tournament extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
+
     public function themes(): BelongsToMany
     {
         return $this->belongsToMany(Theme::class, 'tournament_themes');
