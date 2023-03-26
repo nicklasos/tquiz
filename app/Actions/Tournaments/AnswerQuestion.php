@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Actions\Trivia;
+namespace App\Actions\Tournaments;
 
 use App\Actions\Tournaments\AddScore;
 use App\Models\Game;
 use App\Models\GameQuestionAnswer;
-use App\Queries\Trivia\QuestionAnswerQuery;
+use App\Queries\Tournaments\QuestionAnswerQuery;
 
 class AnswerQuestion
 {

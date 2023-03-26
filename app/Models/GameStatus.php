@@ -9,4 +9,5 @@ enum GameStatus: string
     case Playing = 'playing';
     case WaitingParticipants = 'waiting_participants';
     case Done = 'done';
+    case Expired = 'expired';
 }

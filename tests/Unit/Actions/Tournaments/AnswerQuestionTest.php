@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Queries\Trivia;
+namespace Tests\Unit\Actions\Tournaments;
 
+use App\Actions\Tournaments\AnswerQuestion;
 use App\Models\Game;
 use App\Models\GameSeed;
 use App\Models\GameSeedQuestion;
@@ -12,48 +13,34 @@ use App\Models\QuestionAnswer;
 use App\Models\TempUser;
 use App\Models\Theme;
 use App\Models\Tournament;
-use App\Queries\Trivia\GamePlayQuery;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
-class GamePlayQueryTest extends TestCase
+class AnswerQuestionTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testQuestion()
+    public function testAnswer()
     {
         $theme = Theme::factory()->create();
 
         $tournament = Tournament::factory()
             ->hasAttached($theme)
-            ->create([
-                'questions' => 2,
-            ]);
-
-        $question = Question::factory()
-            ->for($theme)
             ->create();
 
+        $question = Question::factory()->for($theme)->create();
         $answer = QuestionAnswer::factory()
+            ->correct()
             ->for($question)
             ->create();
 
-        $answer2 = QuestionAnswer::factory()
-            ->for($question)
-            ->create();
-
-        $answer3 = QuestionAnswer::factory()
-            ->for($question)
-            ->create();
-
-        $gameSeed = GameSeed::factory()
-            ->for($tournament)
-            ->create();
+        $gameSeed = GameSeed::factory()->for($tournament)->create();
 
         $gameSeedQuestion = GameSeedQuestion::factory()
             ->for($gameSeed)
             ->for($question)
             ->create();
+
 
         $tempUser = TempUser::factory()->create();
 
@@ -61,13 +48,16 @@ class GamePlayQueryTest extends TestCase
             ->for($tournament)
             ->for($gameSeed)
             ->for($tempUser)
-            ->create();
+            ->create(['score' => 3]);
 
+        $answerQuestion = app(AnswerQuestion::class);
 
-        $gamePlay = app(GamePlayQuery::class);
+        $gameQuestionAnswer = $answerQuestion->answer(
+            $game,
+            $answer->id,
+            4,
+        );
 
-        $q = $gamePlay->question($game, 1);
-
-        $this->assertEquals(3, $q->answers);
+        $this->assertEquals($gameSeed->id, $gameQuestionAnswer->game_seed_id);
     }
 }

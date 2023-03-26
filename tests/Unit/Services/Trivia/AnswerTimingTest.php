@@ -23,7 +23,7 @@ class AnswerTimingTest extends TestCase
 
         $timing->set($game);
 
-        sleep(2);
+        Carbon::setTestNow(Carbon::now()->addSeconds(2));
 
         $seconds = $timing->getSeconds($game);
 

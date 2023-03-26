@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Actions\Trivia;
+namespace Tests\Unit\Queries\Tournaments;
 
-use App\Actions\Trivia\AnswerQuestion;
 use App\Models\Game;
 use App\Models\GameSeed;
 use App\Models\GameSeedQuestion;
@@ -13,15 +12,15 @@ use App\Models\QuestionAnswer;
 use App\Models\TempUser;
 use App\Models\Theme;
 use App\Models\Tournament;
-use App\Queries\Trivia\NextQuestionQuery;
+use App\Queries\Tournaments\GamePlayQuery;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
-class NextQuestionTest extends TestCase
+class GamePlayQueryTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testNumber()
+    public function testQuestion()
     {
         $theme = Theme::factory()->create();
 
@@ -39,14 +38,13 @@ class NextQuestionTest extends TestCase
             ->for($question)
             ->create();
 
-        $question2 = Question::factory()
-            ->for($theme)
-            ->create();
-
         $answer2 = QuestionAnswer::factory()
-            ->for($question2)
+            ->for($question)
             ->create();
 
+        $answer3 = QuestionAnswer::factory()
+            ->for($question)
+            ->create();
 
         $gameSeed = GameSeed::factory()
             ->for($tournament)
@@ -57,11 +55,6 @@ class NextQuestionTest extends TestCase
             ->for($question)
             ->create();
 
-        $gameSeedQuestion2 = GameSeedQuestion::factory()
-            ->for($gameSeed)
-            ->for($question2)
-            ->create();
-
         $tempUser = TempUser::factory()->create();
 
         $game = Game::factory()
@@ -70,17 +63,11 @@ class NextQuestionTest extends TestCase
             ->for($tempUser)
             ->create();
 
-        $answerAction = app(AnswerQuestion::class);
-        $nextQuestion = app(NextQuestionQuery::class);
 
-        $this->assertEquals(1, $nextQuestion->number($game));
+        $gamePlay = app(GamePlayQuery::class);
 
-        $answerAction->answer($game, $answer->id, 1);
+        $q = $gamePlay->question($game, 1);
 
-        $this->assertEquals(2, $nextQuestion->number($game));
-
-        $answerAction->answer($game, $answer->id, 1);
-
-        $this->assertNull($nextQuestion->number($game));
+        $this->assertEquals(3, $q->answers->count());
     }
 }

@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Tournaments;
 
 use App\Actions\Tournaments\FinishTournament;
-use App\Actions\Trivia\AnswerQuestion;
+use App\Actions\Tournaments\AnswerQuestion;
 use App\Http\Controllers\Controller;
 use App\Models\Game;
 use App\Queries\Tournaments\LeaderboardQuery;
-use App\Queries\Trivia\GamePlayQuery;
-use App\Queries\Trivia\NextQuestionQuery;
+use App\Queries\Tournaments\GamePlayQuery;
+use App\Queries\Tournaments\NextQuestionQuery;
 use App\Services\Trivia\AnswerTimingSession;
 use Gate;
 
