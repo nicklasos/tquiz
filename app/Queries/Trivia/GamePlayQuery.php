@@ -7,13 +7,12 @@ namespace App\Queries\Trivia;
 use App\Models\Game;
 use App\Models\GameQuestionAnswer;
 use App\Models\Question;
-use App\Models\TempUser;
 
 class GamePlayQuery
 {
     public function question(Game $game, int $questionNumber): Question
     {
-        return Question::query()
+        $question = Question::query()
             ->with('answers')
             ->selectRaw('questions.*')
             ->leftJoin(
@@ -27,6 +26,13 @@ class GamePlayQuery
             ->limit(1)
             ->offset($questionNumber - 1)
             ->first();
+
+        $question->setRelation(
+            'answers',
+            $question->answers->shuffle($question->id) // equality for every player
+        );
+
+        return $question;
     }
 
     public function isAlreadyPlaying(Game $game): bool
