@@ -27,7 +27,7 @@ class AnswerQuestion
         $questionAnswer = $this->questionAnswerQuery->find($answerId);
 
         if ($questionAnswer->is_correct) {
-            $this->addScore->add($game, 10 + $seconds * 10);
+            $this->addScore->add($game, 100 + $seconds * 10);
         }
 
         return GameQuestionAnswer::create([
