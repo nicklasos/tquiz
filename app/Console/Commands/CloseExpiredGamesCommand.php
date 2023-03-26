@@ -10,18 +10,24 @@ use Illuminate\Console\Command;
 
 class CloseExpiredGamesCommand extends Command
 {
-    protected $signature = 'expired-games:close';
+    protected $signature = 'expired-games:close {--silent}';
 
     protected $description = 'Close expired games';
 
     public function handle(ExpiredGamesQuery $expiredGamesQuery, CloseGame $closeGame): void
     {
-        $this->info('Closing expired games');
+        if (!$this->option('silent')) {
+            $this->info('Closing expired games');
+        }
 
         $expiredGames = $expiredGamesQuery->getExpiredGames();
 
         foreach ($expiredGames as $expiredGame) {
             $closeGame->close($expiredGame);
+        }
+
+        if (!$this->option('silent')) {
+            $this->info("Closed games: {$expiredGames->count()}");
         }
     }
 }

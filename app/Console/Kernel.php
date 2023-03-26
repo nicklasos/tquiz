@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-         $schedule->command('expired-games:close')->everyTwoMinutes();
+         $schedule->command('expired-games:close --silent')->everyTwoMinutes();
     }
 
     /**

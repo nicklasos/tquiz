@@ -18,6 +18,7 @@ class QuestionsQuery
     {
         return Question::query()
             ->whereIn('theme_id', $themeIds)
+            ->where('is_active', true)
             ->inRandomOrder()
             ->limit($limit)
             ->get();
