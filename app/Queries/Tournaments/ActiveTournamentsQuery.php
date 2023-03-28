@@ -10,10 +10,13 @@ use Illuminate\Database\Eloquent\Collection;
 class ActiveTournamentsQuery
 {
     /**
-     * @return Collection<Tournament>
+     * @return Collection<int, Tournament>
      */
     public function get(): Collection
     {
-        return Tournament::active()->get();
+        return Tournament::query()
+            ->active()
+            ->comingSoon(false)
+            ->get();
     }
 }

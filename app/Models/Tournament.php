@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Theme> $themes
  * @property-read int|null $themes_count
  * @method static Builder|Tournament active()
+ * @method static Builder|Tournament comingSoon(bool $bool = true)
  * @method static \Database\Factories\TournamentFactory factory($count = null, $state = [])
  * @method static Builder|Tournament newModelQuery()
  * @method static Builder|Tournament newQuery()
@@ -55,5 +56,10 @@ class Tournament extends Model
     public function scopeActive(Builder $builder): void
     {
         $builder->where('is_active', true);
+    }
+
+    public function scopeComingSoon(Builder $builder, bool $bool = true): void
+    {
+        $builder->where('coming_soon', $bool);
     }
 }

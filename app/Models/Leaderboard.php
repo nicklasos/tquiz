@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int|null $place
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\TempUser|null $tempUsers
+ * @property-read \App\Models\TempUser|null $tempUser
  * @method static \Database\Factories\LeaderboardFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard newQuery()
