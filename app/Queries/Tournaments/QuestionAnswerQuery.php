@@ -12,9 +12,4 @@ class QuestionAnswerQuery
     {
         return QuestionAnswer::findOrFail($id);
     }
-
-    public function isAnswered(): bool
-    {
-
-    }
 }
