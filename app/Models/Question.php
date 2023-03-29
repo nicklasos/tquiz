@@ -17,6 +17,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  *
  * @property int $id
  * @property string $theme_id
+ * @property int|null $import_id
  * @property int $is_active
  * @property string $question
  * @property string|null $description
@@ -36,6 +37,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Question whereImportId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereQuestion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereThemeId($value)

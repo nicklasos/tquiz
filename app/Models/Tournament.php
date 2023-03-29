@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $players
  * @property int $questions
  * @property int $is_active
+ * @property int $coming_soon
  * @property string $title
  * @property string $description
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -29,6 +30,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static Builder|Tournament newModelQuery()
  * @method static Builder|Tournament newQuery()
  * @method static Builder|Tournament query()
+ * @method static Builder|Tournament whereComingSoon($value)
  * @method static Builder|Tournament whereCreatedAt($value)
  * @method static Builder|Tournament whereDescription($value)
  * @method static Builder|Tournament whereId($value)
