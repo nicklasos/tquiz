@@ -17,7 +17,6 @@ class JoinTournament
         private readonly CreateGame              $createGame,
         private readonly CreateGameSeed          $createGameSeed,
         private readonly FindGameSeedQuery       $findGameSeed,
-        private readonly MaxGameSeedsCachedQuery $maxGameSeeds,
         private readonly NewQuestionsQuery       $newQuestionsQuery,
     )
     {
@@ -36,12 +35,6 @@ class JoinTournament
             } else {
                 $gameSeed = $this->createGameSeed->createForQuestions($tournament, $newQuestions);
             }
-
-//            if ($this->maxGameSeeds->isMaxSeedsForTournament($tournament)) {
-//                $gameSeed = $this->findGameSeed->randomForTournament($tournament);
-//            } else {
-//                $gameSeed = $this->createGameSeed->create($tournament);
-//            }
         }
 
         return $this->createGame->create($tempUser, $tournament, $gameSeed);

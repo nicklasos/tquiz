@@ -28,10 +28,14 @@ class CreateGameSeedTest extends TestCase
                 'questions' => 3,
             ]);
 
+        $questions = collect();
+
         for ($i = 0; $i < 5; $i++) {
             $question = Question::factory()
                 ->for($theme)
                 ->create();
+
+            $questions[] = $question;
 
             QuestionAnswer::factory()
                 ->for($question)
@@ -44,7 +48,7 @@ class CreateGameSeedTest extends TestCase
                 ->create();
         }
 
-        $seed = $createGameSeed->create($tournament);
+        $seed = $createGameSeed->createForQuestions($tournament, $questions->slice(0, 3));
 
         $this->assertEquals(
             $tournament->questions,
