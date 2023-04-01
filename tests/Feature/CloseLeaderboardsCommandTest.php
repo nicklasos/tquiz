@@ -69,5 +69,7 @@ class CloseLeaderboardsCommandTest extends TestCase
         foreach ($game->leaderboards()->get() as $leaderboard) {
             $this->assertEquals(LeaderboardStatus::Done, $leaderboard->status);
         }
+
+        $this->assertEquals(GameStatus::Done, $game->fresh()->status);
     }
 }
