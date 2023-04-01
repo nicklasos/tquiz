@@ -7,7 +7,6 @@ namespace App\Actions\Tournaments;
 use App\Models\Game;
 use App\Models\TempUser;
 use App\Models\Tournament;
-use App\Queries\Tournaments\Cached\MaxGameSeedsCachedQuery;
 use App\Queries\Tournaments\FindGameSeedQuery;
 use App\Queries\Tournaments\NewQuestionsQuery;
 

@@ -11,7 +11,7 @@ use App\Models\Game;
 use App\Queries\Tournaments\LeaderboardQuery;
 use App\Queries\Tournaments\GamePlayQuery;
 use App\Queries\Tournaments\NextQuestionQuery;
-use App\Services\Trivia\AnswerTimingSession;
+use App\Services\Tournaments\AnswerTimingSession;
 use Gate;
 
 class PlayTournamentController extends Controller

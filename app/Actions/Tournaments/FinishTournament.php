@@ -6,14 +6,18 @@ namespace App\Actions\Tournaments;
 
 use App\Models\Game;
 use App\Models\GameStatus;
+use App\Models\LeaderboardStatus;
 use App\Queries\Tournaments\FinishTournamentGamesQuery;
+use App\Services\Tournaments\RandomLeaderboardStatus;
 use Illuminate\Database\Eloquent\Collection;
 
 class FinishTournament
 {
     public function __construct(
         private readonly CreateLeaderboard          $createLeaderboard,
+        private readonly CreateRandomLeaderboard    $createRandomLeaderboard,
         private readonly FinishTournamentGamesQuery $finishTournamentGames,
+        private readonly RandomLeaderboardStatus    $randomLeaderboardStatus,
     )
     {
     }
@@ -48,18 +52,31 @@ class FinishTournament
 
                 $currentGame->place = $currentGame->getLeaderboardPlace();
                 $currentGame->status = GameStatus::Done;
-                $currentGame->save();
 
                 foreach ($allGames as $leaderboardGame) {
-                    $this->createLeaderboard->create(
-                        $currentGame->id,
-                        $leaderboardGame,
-                        $leaderboardGame->temp_user_id === $currentGame->temp_user_id,
-                    );
+
+                    if ($this->randomLeaderboardStatus->delayNeeded()) {
+                        $leaderboard = $this->createRandomLeaderboard->create(
+                            $currentGame->id,
+                            $leaderboardGame,
+                            $leaderboardGame->temp_user_id === $currentGame->temp_user_id,
+                        );
+
+                        if ($leaderboard->status === LeaderboardStatus::Playing) {
+                            $currentGame->status = GameStatus::WaitingFakeParticipants;
+                        }
+
+                    } else {
+                        $this->createLeaderboard->create(
+                            $currentGame->id,
+                            $leaderboardGame,
+                            $leaderboardGame->temp_user_id === $currentGame->temp_user_id,
+                        );
+                    }
                 }
 
+                $currentGame->save();
             }
-
         }
     }
 }

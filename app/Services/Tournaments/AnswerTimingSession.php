@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Trivia;
+namespace App\Services\Tournaments;
 
 use App\Models\Game;
 use Carbon\Carbon;

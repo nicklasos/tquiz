@@ -6,6 +6,7 @@ namespace App\Actions\Tournaments;
 
 use App\Models\Game;
 use App\Models\Leaderboard;
+use App\Models\LeaderboardStatus;
 
 class CreateLeaderboard
 {
@@ -17,6 +18,7 @@ class CreateLeaderboard
             'score' => $game->score,
             'place' => $game->getLeaderboardPlace(),
             'is_main_user' => $isMainUser,
+            'status' => LeaderboardStatus::Done,
         ]);
     }
 }
