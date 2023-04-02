@@ -21,6 +21,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property int $is_active
  * @property string $question
  * @property string|null $description
+ * @property int $likes
+ * @property int $dislikes
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\QuestionAnswer> $answers
@@ -36,9 +38,11 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder|Question query()
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Question whereDislikes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereImportId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Question whereLikes($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereQuestion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereThemeId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Question whereUpdatedAt($value)

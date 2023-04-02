@@ -17,6 +17,8 @@ class QuestionFactory extends Factory
         return [
             'question' => $this->faker->word(),
             'is_active' => true,
+            'likes' => 0,
+            'dislikes' => 0,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

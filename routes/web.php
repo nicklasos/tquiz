@@ -3,6 +3,7 @@
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalPagesController;
+use App\Http\Controllers\QuestionLikesController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\Tournaments\JoinTournamentController;
 use App\Http\Controllers\Tournaments\PlayTournamentController;
@@ -45,5 +46,11 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
 
     Route::get('history', HistoryController::class)->name('history');
 
-
+    /*
+    |--------------------------------------------------------------------------
+    | Likes
+    |--------------------------------------------------------------------------
+    */
+    Route::post('question/{id}/like', [QuestionLikesController::class, 'like']);
+    Route::post('question/{id}/dislike', [QuestionLikesController::class, 'dislike']);
 });
