@@ -7,9 +7,9 @@
         Hello world!
     </h1>
 
-    <x-button class="mt-5"></x-button>
-
-    <br><br><br>
+    <x-button class="my-9">
+        Why change something if it sells well?
+    </x-button>
 
     <div style="max-width: 500px">
 

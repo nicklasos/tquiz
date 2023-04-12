@@ -1,0 +1,84 @@
+.button {
+    min-height: 60px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 18px;
+    padding-bottom: 6px;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 0;
+    display: inline-block;
+    text-decoration: none;
+    border: 0;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    z-index: 0;
+    transition-property: transform, background-color, box-shadow;
+    transition-duration: .15s;
+    user-select: none;
+    text-align: center;
+}
+
+.button:active:before {
+    transform: translateY(6px);
+}
+
+.button:hover:before {
+    background-color: #ffe980;
+}
+
+.button:before {
+    background-color: #ffe566;
+    bottom: 6px;
+    top: 0;
+    z-index: -1;
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    left: 0;
+    right: 0;
+    transition: inherit;
+}
+
+.button:after {
+    background-color: #ccb029;
+    top: 6px;
+    bottom: 0;
+    z-index: -2;
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    left: 0;
+    right: 0;
+    transition: inherit;
+}
+
+.button:active {
+    box-shadow: none;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:active > * {
+    transform: translateY(6px);
+}
+
+.button-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: transform, background-color;
+    transition-duration: .15s;
+    color: #39414b;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0;
+}
+
+.button-content:active {
+    transform: translateY(6px);
+}
