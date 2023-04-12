@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     Privacy Policy
-@endsection
+</x-layout>

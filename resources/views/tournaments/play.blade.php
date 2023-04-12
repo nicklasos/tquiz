@@ -1,12 +1,10 @@
-@extends('layouts.app')
-
-@section('js-page', 'tournament')
-
-@section('content')
+<x-layout>
+    <x-slot:jsPage>tournament</x-slot:jsPage>
 
     <div id="question-container">
 
         @include('tournaments.question', [$question, $game])
 
     </div>
-@endsection
+
+</x-layout>

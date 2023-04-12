@@ -1,8 +1,6 @@
-@extends('layouts.app')
+<x-layout>
+    <x-slot:jsPage>home</x-slot:jsPage>
 
-@section('js-page', 'home')
-
-@section('content')
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
@@ -16,4 +14,4 @@
         @include('tournaments.list', $tournaments)
 
     </div>
-@endsection
+</x-layout>
