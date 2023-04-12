@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:jsPage>tournament</x-slot:jsPage>
+    <x-slot:js-page>tournament</x-slot:js-page>
 
     <div id="question-container">
 

@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:jsPage>home</x-slot:jsPage>
+    <x-slot:js-page>home</x-slot:js-page>
 
     <h1 class="text-3xl font-bold underline">
         Hello world!
