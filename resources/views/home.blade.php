@@ -11,7 +11,7 @@
 
     <div style="max-width: 500px">
 
-        @include('tournaments.list', $tournaments)
+        <x-tournaments.list :$tournaments></x-tournaments.list>
 
     </div>
 </x-layout>

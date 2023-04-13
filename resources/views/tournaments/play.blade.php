@@ -3,7 +3,7 @@
 
     <div id="question-container">
 
-        @include('tournaments.question', [$question, $game])
+        <x-tournaments.question :$question :$game></x-tournaments.question>
 
     </div>
 
