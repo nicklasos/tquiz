@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('expired-games:close --silent')->everyTwoMinutes();
         $schedule->command('leaderboards:close')->everyMinute();
+        $schedule->command('sitemap:generate')->daily();
     }
 
     /**
