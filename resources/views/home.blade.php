@@ -1,19 +1,17 @@
-@extends('layouts.app')
+<x-layout>
+    <x-slot:js-page>home</x-slot:js-page>
 
-@section('js-page', 'home')
-
-@section('content')
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
 
-    <x-button class="mt-5"></x-button>
-
-    <br><br><br>
+    <x-button class="my-9">
+        Why change something if it sells well?
+    </x-button>
 
     <div style="max-width: 500px">
 
-        @include('tournaments.list', $tournaments)
+        <x-tournaments.list :$tournaments></x-tournaments.list>
 
     </div>
-@endsection
+</x-layout>

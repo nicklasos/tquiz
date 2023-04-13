@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     Terms of Service
-@endsection
+</x-layout>
