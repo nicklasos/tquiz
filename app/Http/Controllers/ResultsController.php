@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use App\Queries\Tournaments\HistoryQuery;
 use App\Services\TempUsers\TempUserSession;
 
-class HistoryController extends Controller
+class ResultsController extends Controller
 {
     public function __invoke(HistoryQuery $historyQuery, TempUserSession $tempUserStorage)
     {

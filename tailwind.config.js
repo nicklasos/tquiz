@@ -10,7 +10,10 @@ module.exports = {
                 'nunito': ['Nunito', 'ui-sans-serif', 'serif'],
             },
             colors: {
-                background: '#694cbf',
+                main: '#621C99',
+                header: '#591A8A',
+                'join-button': '#7E3AD4',
+                'active-menu': '#621C99',
             },
         },
     },

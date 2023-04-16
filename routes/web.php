@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalPagesController;
 use App\Http\Controllers\QuestionLikesController;
@@ -44,7 +44,7 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
         [PlayTournamentController::class, 'answerQuestion'],
     );
 
-    Route::get('history', HistoryController::class)->name('history');
+    Route::get('results', ResultsController::class)->name('results');
 
     /*
     |--------------------------------------------------------------------------
@@ -56,3 +56,4 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
 });
 
 Route::view('flex', 'flex');
+Route::view('design', 'design');

@@ -1,0 +1,77 @@
+@import "reset";
+@import "breakpoints";
+@import "colors";
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+[class*="__container"] {
+    max-width: 330px;
+    padding: 0 10px;
+    margin: 0 auto;
+
+    @include sm {
+        max-width: 350px;
+    }
+
+    @include md {
+        max-width: 350px;
+    }
+
+    @include lg {
+        max-width: 350px;
+    }
+}
+
+body {
+    background-image: url("img/background.svg");
+    background-color: $main;
+}
+
+
+// Header
+
+.header {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 58px;
+    }
+
+    &__logo {
+
+    }
+
+    &__menu {
+
+    }
+
+    &__menu li {
+        display: inline;
+    }
+
+    &__avatar {
+
+    }
+}
+
+
+// Footer
+
+.footer {
+    background-color: $header;
+    min-height: 287px;
+}
