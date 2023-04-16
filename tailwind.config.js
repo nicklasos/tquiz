@@ -5,7 +5,14 @@ module.exports = {
         "./resources/**/*.js",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'nunito': ['Nunito', 'ui-sans-serif', 'serif'],
+            },
+            colors: {
+                background: '#694cbf',
+            },
+        },
     },
     plugins: [],
 }

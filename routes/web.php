@@ -54,3 +54,5 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     Route::post('question/{id}/like', [QuestionLikesController::class, 'like']);
     Route::post('question/{id}/dislike', [QuestionLikesController::class, 'dislike']);
 });
+
+Route::view('flex', 'flex');
