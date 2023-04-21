@@ -27,7 +27,7 @@
             <div class="header__menu">
                 <ul>
                     <li>
-                        <a href="{{ route('home') }}" class="active">
+                        <a href="{{ route('home') }}" class="{{ (string)$tab === 'home' ? 'active' : '' }}">
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -42,7 +42,7 @@
                             Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('results') }}">
+                        <a href="{{ route('results') }}" class="{{ (string)$tab === 'results' ? 'active' : '' }}">
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -73,7 +73,7 @@
 
     <main class="main">
         <div class="main__container">
-    {{ $slot }}
+            {{ $slot }}
         </div>
     </main>
 

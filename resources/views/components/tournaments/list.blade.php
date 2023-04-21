@@ -1,12 +1,43 @@
-<div>
-    <h3>Tournaments new</h3>
+@php
+    /**
+     * @var \Illuminate\Database\Eloquent\Collection<\App\Models\Tournament> $tournaments
+     */
+@endphp
+
+<div class="tournaments">
     @foreach ($tournaments as $tournament)
-        <p>
-            <b>{{ $tournament->title }}</b><br>
-        {{ $tournament->description }}
-        <form action="{{ route('tournament.join', $tournament) }}" method="post">
-            <button type="submit">Join tournament</button>
-        </form>
-        </p>
+        <div class="tournament">
+            <div class="tournament__image">
+                <img src="/img/tournaments/fortnite.jpg" alt="fortnite">
+            </div>
+
+            <div class="tournament__body">
+
+                <div class="tournament__title">
+                    {{ $tournament->title }}
+                </div>
+
+                <div class="tournament__description">
+                    {{ $tournament->description }}
+                </div>
+
+                <div class="tournament__footer">
+                    <div class="tournament__params">
+                        <p>{{ $tournament->players }} Players</p>
+                        <p>{{ $tournament->questions }} Questions</p>
+                    </div>
+
+                    <div class="tournament__join">
+                        <form action="{{ route('tournament.join', $tournament) }}" method="post">
+                            <button class="join-button">Join</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     @endforeach
+
 </div>

@@ -72,6 +72,6 @@ class PlayTournamentController extends Controller
 
         $this->answerTimingSession->set($game);
 
-        return view('tournaments.question', compact('game', 'question'));
+        return view('components.tournaments.question', compact('game', 'question'));
     }
 }

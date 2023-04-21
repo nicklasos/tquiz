@@ -13,6 +13,6 @@ class ResultsController extends Controller
     {
         $games = $historyQuery->get($tempUserStorage->getModelWithId());
 
-        return view('tournaments.history', compact('games'));
+        return view('tournaments.results', compact('games'));
     }
 }
