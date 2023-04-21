@@ -1,3 +1,4 @@
+$xs: 480px;
 $sm: 640px;
 $md: 768px;
 $lg: 1024px;
@@ -6,6 +7,12 @@ $xxl: 1536px;
 
 @mixin galaxy-fold {
     @media screen and (max-width: 379px) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @media screen and (min-width: #{$xs}) {
         @content;
     }
 }
