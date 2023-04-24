@@ -8,6 +8,7 @@ use App\Actions\Tournaments\JoinTournament;
 use App\Facades\TempUserSession;
 use App\Http\Controllers\Controller;
 use App\Models\Tournament;
+use Gate;
 
 class JoinTournamentController extends Controller
 {
@@ -16,6 +17,10 @@ class JoinTournamentController extends Controller
         JoinTournament  $joinTournament
     )
     {
+        if (!Gate::allows('can-join-tournament', $tournament)) {
+            abort(403);
+        }
+
         $game = $joinTournament->join(
             TempUserSession::getModelWithId(),
             $tournament,

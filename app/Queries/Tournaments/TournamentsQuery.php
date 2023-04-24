@@ -7,16 +7,23 @@ namespace App\Queries\Tournaments;
 use App\Models\Tournament;
 use Illuminate\Database\Eloquent\Collection;
 
-class ActiveTournamentsQuery
+class TournamentsQuery
 {
     /**
      * @return Collection<int, Tournament>
      */
-    public function get(): Collection
+    public function active(): Collection
     {
         return Tournament::query()
             ->active()
             ->comingSoon(false)
+            ->get();
+    }
+
+    public function comingSoon(): Collection
+    {
+        return Tournament::query()
+            ->comingSoon()
             ->get();
     }
 }

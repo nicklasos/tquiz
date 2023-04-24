@@ -31,6 +31,7 @@ class TournamentsController extends AdminController
         $grid->column('players', __('Players'));
         $grid->column('questions', __('Questions'));
         $grid->column('is_active', __('Is active'));
+        $grid->column('coming_soon', __('Coming soon'));
         $grid->column('title', __('Title'));
         $grid->column('description', __('Description'));
         $grid->column('created_at', __('Created at'));
@@ -53,6 +54,7 @@ class TournamentsController extends AdminController
         $show->field('players', __('Players'));
         $show->field('questions', __('Questions'));
         $show->field('is_active', __('Is active'));
+        $show->field('coming_soon', __('Coming soon'));
         $show->field('title', __('Title'));
         $show->field('description', __('Description'));
         $show->field('created_at', __('Created at'));
@@ -75,6 +77,7 @@ class TournamentsController extends AdminController
         $form->number('players', __('Players'));
         $form->number('questions', __('Questions'))->default(6);
         $form->switch('is_active', __('Is active'));
+        $form->switch('coming_soon', __('Coming soon'));
         $form->text('title', __('Title'));
         $form->textarea('description', __('Description'));
 

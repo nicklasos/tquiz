@@ -1,6 +1,4 @@
-<x-layout>
-    <x-slot:tab>results</x-slot:tab>
-
+<x-layout :tab="'results'">
     <div class="results">
         @foreach ($games as $game)
             <div class="results__result">
@@ -18,11 +16,18 @@
                     </div>
                     <div class="results__params">
                         <div class="results__date">
-                            Date: 13:34:43
+                            Date: <span class="results__date_time">13:34:43</span>
                         </div>
                         <div class="results__place">
-                            <img src="/img/icons/place_1.svg" alt="first place">
-                            Place: {{ $game->place }}
+                            <div class="results__place_trophy">
+                                <img src="/img/icons/place_1.svg" alt="first place">
+                                <span class="results__place_number">
+                                    {{ $game->place }}
+                                </span>
+                            </div>
+                            <div class="results__place_text">
+                                place
+                            </div>
                         </div>
                     </div>
                 </div>

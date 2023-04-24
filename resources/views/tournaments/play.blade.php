@@ -1,6 +1,4 @@
-<x-layout>
-    <x-slot:js-page>tournament</x-slot:js-page>
-
+<x-layout :js-page="'tournament'">
     <div id="question-container">
 
         <x-tournaments.question :$question :$game></x-tournaments.question>

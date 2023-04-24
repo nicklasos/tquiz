@@ -6,10 +6,13 @@ namespace Tests\Unit\Services\TempUsers;
 
 use App\Models\TempUser;
 use App\Services\TempUsers\TempUserSession;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 class TempUserSessionTest extends TestCase
 {
+    use DatabaseTransactions;
+
     public function testSessions()
     {
         $tempUserSession = app(TempUserSession::class);

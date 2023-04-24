@@ -16,9 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body data-page="{{ $jsPage ?? '' }}">
+<body data-page="{{ $attributes->get('js-page') }}">
 <div class="wrapper">
-    <header class="header">
+    <header class="header {{ $attributes->get('js-page') === 'tournament' ? 'header_hide' : '' }}">
         <div class="header__container">
 
             <div class="header__logo">
@@ -27,7 +27,7 @@
             <div class="header__menu">
                 <ul>
                     <li>
-                        <a href="{{ route('home') }}" class="{{ (string)$tab === 'home' ? 'active' : '' }}">
+                        <a href="{{ route('home') }}" class="{{ $attributes->get('tab') === 'home' ? 'active' : '' }}">
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -42,7 +42,7 @@
                             Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('results') }}" class="{{ (string)$tab === 'results' ? 'active' : '' }}">
+                        <a href="{{ route('results') }}" class="{{ $attributes->get('tab') === 'results' ? 'active' : '' }}">
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -120,7 +120,9 @@
                     </div>
                 </div>
                 <div class="footer__links">
-                    <h2>TQuiz</h2>
+                    <h2>
+                        <a href="{{ route('home') }}">TQuiz</a>
+                    </h2>
                     <div>
                         <a href="#" class="link">Privacy Policy</a>
                     </div>

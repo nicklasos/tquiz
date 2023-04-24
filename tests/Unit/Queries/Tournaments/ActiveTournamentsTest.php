@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests\Unit\Queries\Tournaments;
 
 use App\Models\Tournament;
-use App\Queries\Tournaments\Cached\ActiveTournamentsCachedQuery;
-use App\Queries\Tournaments\ActiveTournamentsQuery;
+use App\Queries\Tournaments\Cached\TournamentsCachedQuery;
+use App\Queries\Tournaments\TournamentsQuery;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
@@ -18,12 +18,12 @@ class ActiveTournamentsTest extends TestCase
     {
         $tournament = Tournament::factory()->create();
 
-        $activeTournaments = app(ActiveTournamentsQuery::class);
+        $activeTournaments = app(TournamentsQuery::class);
 
-        $this->assertTrue($tournament->is($activeTournaments->get()->last()));
+        $this->assertTrue($tournament->is($activeTournaments->active()->last()));
 
-        $activeTournamentsCached = app(ActiveTournamentsCachedQuery::class);
+        $activeTournamentsCached = app(TournamentsCachedQuery::class);
 
-        $this->assertTrue($tournament->is($activeTournamentsCached->get()->last()));
+        $this->assertTrue($tournament->is($activeTournamentsCached->active()->last()));
     }
 }

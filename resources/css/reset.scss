@@ -59,4 +59,9 @@ a {
 button {
     border: none;
     cursor: pointer;
+    outline: none !important;
+}
+
+button:focus {
+    outline: none !important;
 }

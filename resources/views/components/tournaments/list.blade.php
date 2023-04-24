@@ -7,6 +7,11 @@
 <div class="tournaments">
     @foreach ($tournaments as $tournament)
         <div class="tournament">
+
+            @if ($tournament->coming_soon)
+                <div class="coming_soon"></div>
+            @endif
+
             <div class="tournament__image">
                 <img src="/img/tournaments/fortnite.jpg" alt="fortnite">
             </div>

@@ -20,7 +20,7 @@ class HistoryQuery
             ->with('tournament')
             ->where('temp_user_id', $tempUser->id)
             ->orderByDesc('id')
-            ->limit(50)
+            ->limit(30)
             ->get();
     }
 }
