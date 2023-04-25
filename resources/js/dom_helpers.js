@@ -8,9 +8,13 @@ export function event(element, eventType, selector, listener, ...optionsArgs) {
 }
 
 export function click(container, selector, listener) {
-    event(id('question-container'), 'click', '.js-answer-button', listener);
+    event(id(container), 'click', selector, listener);
 }
 
 export function id(elementId) {
     return document.getElementById(elementId);
+}
+
+export function q(query) {
+    return document.querySelector(query);
 }

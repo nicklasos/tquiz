@@ -33,9 +33,9 @@ class PlayTournamentController extends Controller
             abort(403);
         }
 
-        if ($this->gamePlayQuery->isAlreadyPlaying($game)) {
-            return to_route('home');
-        }
+//        if ($this->gamePlayQuery->isAlreadyPlaying($game)) {
+//            return to_route('home');
+//        }
 
         $question = $this->gamePlayQuery->question($game, 1);
 
