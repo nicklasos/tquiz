@@ -18,3 +18,7 @@ export function id(elementId) {
 export function q(query) {
     return document.querySelector(query);
 }
+
+export function qAll(query) {
+    return document.querySelectorAll(query);
+}

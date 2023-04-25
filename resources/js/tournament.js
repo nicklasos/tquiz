@@ -1,12 +1,12 @@
 import {update} from "./content_update";
-import {click, q} from "./dom_helpers";
+import {click, q, qAll} from "./dom_helpers";
 
 export function runTournament() {
     let answered = false;
     let gameId = null;
     let answerId = null;
 
-    click('question-container', '.js-next-button', function (event) {
+    click('question-container', '.js-next-button', function () {
         update({
             url: `/tournament/${gameId}/answer/${answerId}`,
             method: 'POST',
@@ -21,31 +21,37 @@ export function runTournament() {
         answerId = null;
     });
 
-    click('question-container', '.js-answer-button', function (event) {
+    click('question-container', '.js-answer-button', function (e) {
         if (answered) {
             return;
         }
 
-        gameId = event.target.attributes['data-game-id'].value;
-        answerId = event.target.attributes['data-answer-id'].value;
-        let isCorrect = event.target.attributes['data-is-correct'].value;
+        answered = true;
+
+        gameId = e.target.attributes['data-game-id'].value;
+        answerId = e.target.attributes['data-answer-id'].value;
+
+        let isCorrect = e.target.attributes['data-is-correct'].value;
         let nextButton = q('.js-next-button');
+        let correctElements = qAll('[data-is-correct="1"]');
+        let scrollTo = q('.js-scroll-to');
+        let description = q('.js-question-description');
 
         if (isCorrect === '0') {
-            event.target.classList.add('wrong');
+            e.target.classList.add('wrong');
         }
 
-        q('[data-is-correct="1"]').classList.add('correct');
-        let description = q('.js-question-description');
+        correctElements.forEach(function (correctEl) {
+            correctEl.classList.add('correct');
+        });
+
         if (description) {
             description.classList.remove('hidden');
         }
 
         nextButton.classList.remove('hidden');
 
-        answered = true;
-
-        q('.js-scroll-to').scrollIntoView({
+        scrollTo.scrollIntoView({
             behavior: "smooth",
             block: "nearest",
         });
