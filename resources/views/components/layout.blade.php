@@ -18,7 +18,10 @@
 </head>
 <body data-page="{{ $attributes->get('js-page') }}">
 <div class="wrapper">
-    <header class="header {{ $attributes->get('js-page') === 'tournament' ? 'header_hide' : '' }}">
+    <header @class([
+        'header',
+        'header_hide' => $attributes->get('js-page') === 'tournament',
+    ])>
         <div class="header__container">
 
             <div class="header__logo">
@@ -27,7 +30,7 @@
             <div class="header__menu">
                 <ul>
                     <li>
-                        <a href="{{ route('home') }}" class="{{ $attributes->get('tab') === 'home' ? 'active' : '' }}">
+                        <a href="{{ route('home') }}" @class(['active' => $attributes->get('tab') === 'home'])>
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -42,7 +45,7 @@
                             Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('results') }}" class="{{ $attributes->get('tab') === 'results' ? 'active' : '' }}">
+                        <a href="{{ route('results') }}" @class(['active' => $attributes->get('tab') === 'results'])>
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path

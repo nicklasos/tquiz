@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @property int $id
  * @property int $temp_user_id
+ * @property int $game_id
  * @property int $game_seed_id
  * @property int $question_answer_id
  * @property int $seconds
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer query()
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereGameId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereGameSeedId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer whereQuestionAnswerId($value)
@@ -40,10 +42,16 @@ class GameQuestionAnswer extends Model
 
     protected $fillable = [
         'temp_user_id',
+        'game_id',
         'game_seed_id',
         'question_answer_id',
         'seconds',
     ];
+
+    public function game(): BelongsTo
+    {
+        return $this->belongsTo(Game::class);
+    }
 
     public function gameSeed(): BelongsTo
     {

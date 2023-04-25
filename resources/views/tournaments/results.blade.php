@@ -1,4 +1,4 @@
-<x-layout :tab="'results'">
+<x-layout tab="results">
     <div class="results">
         @foreach ($games as $game)
             <div class="results__result">

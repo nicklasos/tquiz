@@ -31,6 +31,7 @@ class AnswerQuestion
 
         return GameQuestionAnswer::create([
             'temp_user_id' => $game->temp_user_id,
+            'game_id' => $game->id,
             'game_seed_id' => $game->game_seed_id,
             'question_answer_id' => $answerId,
             'seconds' => $seconds,

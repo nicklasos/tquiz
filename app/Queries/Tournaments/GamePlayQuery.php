@@ -38,7 +38,7 @@ class GamePlayQuery
     public function isAlreadyPlaying(Game $game): bool
     {
         return !!GameQuestionAnswer::query()
-            ->where('game_seed_id', $game->game_seed_id)
+            ->where('game_id', $game->id)
             ->where('temp_user_id', $game->temp_user_id)
             ->limit(1)
             ->count();

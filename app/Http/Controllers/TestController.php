@@ -8,6 +8,6 @@ class TestController extends Controller
 {
     public function __invoke()
     {
-        return 'ok';
+        return view('test');
     }
 }
