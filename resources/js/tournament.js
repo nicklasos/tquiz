@@ -45,5 +45,9 @@ export function runTournament() {
 
         answered = true;
 
+        q('.js-scroll-to').scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+        });
     });
 }

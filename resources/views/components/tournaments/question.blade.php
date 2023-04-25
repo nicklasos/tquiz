@@ -44,4 +44,6 @@
             <button class="js-next-button question__next_button hidden">Next</button>
         </div>
     </div>
+
+    <div class="js-scroll-to"></div>
 </div>
