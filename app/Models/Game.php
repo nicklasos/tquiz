@@ -95,4 +95,12 @@ class Game extends Model
     {
         return $this->hasMany(Leaderboard::class);
     }
+
+    public function isWaiting(): bool
+    {
+        return in_array($this->status, [
+            GameStatus::WaitingParticipants,
+            GameStatus::WaitingFakeParticipants,
+        ]);
+    }
 }

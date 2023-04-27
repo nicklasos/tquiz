@@ -6,6 +6,13 @@ html, body {
     height: 100%;
 }
 
+h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
 .wrapper {
     overflow: hidden;
     display: flex;
@@ -564,6 +571,8 @@ body {
 
     &__place_trophy {
         display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
