@@ -1,8 +1,12 @@
 export function event(element, eventType, selector, listener, ...optionsArgs) {
+    if (!element) {
+        return;
+    }
+
     element.addEventListener(eventType, ...optionsArgs, (event) => {
         let target = event.target
         if (target && target.closest(selector)) {
-            listener.call(this, event)
+            listener.call(this, event, target.closest(selector))
         }
     })
 }

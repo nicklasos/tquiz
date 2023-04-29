@@ -1,6 +1,6 @@
 <div class="results">
     @foreach ($games as $game)
-        <div class="results__result">
+        <div class="results__result js-result-button" data-game-id="{{ $game->id }}">
             <div class="results__image">
                 <img src="/img/tournaments/fortnite.jpg" alt="fortnite">
             </div>
@@ -12,7 +12,7 @@
                     Players: 5<br>
                     Your score: {{ $game->score }}<br>
                     @if ($game->isWaiting())
-                        Waiting Participants...
+                        <br>Waiting Participants...
                     @endif
                 </div>
                 <div class="results__params">

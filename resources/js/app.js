@@ -1,3 +1,5 @@
 import {router} from "./routes";
 
-router(document.body.getAttribute('data-page'));
+document.addEventListener("DOMContentLoaded", function() {
+    router(document.body.getAttribute('data-page'));
+});

@@ -6,6 +6,10 @@ export function runTournament() {
     let gameId = null;
     let answerId = null;
 
+    click('question-container', '.js-leaderboard-button', function () {
+        console.log('leaderboard');
+    });
+
     click('question-container', '.js-next-button', function () {
         update({
             url: `/tournament/${gameId}/answer/${answerId}`,

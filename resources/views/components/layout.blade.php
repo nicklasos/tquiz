@@ -145,5 +145,6 @@
         </div>
     </footer>
 </div>
+<x-popup />
 </body>
 </html>

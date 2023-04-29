@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalPagesController;
@@ -45,6 +46,14 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     );
 
     Route::get('results', ResultsController::class)->name('results');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Leaderboard
+    |--------------------------------------------------------------------------
+    */
+    Route::get('tournament/{game}/leaderboard', LeaderboardController::class);
+
 
     /*
     |--------------------------------------------------------------------------
