@@ -14,6 +14,7 @@ class Question extends Component
     public function __construct(
         public readonly QuestionModel $question,
         public readonly Game          $game,
+        public readonly bool          $isLastQuestion = false,
     )
     {
     }

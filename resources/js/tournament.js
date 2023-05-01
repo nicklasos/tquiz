@@ -6,7 +6,7 @@ export function runTournament() {
     let gameId = null;
     let answerId = null;
 
-    click('question-container', '.js-leaderboard-button', function () {
+    click('question-container', '.js-show-results-button', function () {
         console.log('leaderboard');
     });
 

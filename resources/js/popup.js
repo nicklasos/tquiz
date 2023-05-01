@@ -6,22 +6,25 @@ let onClose = function () {
 
 let modal = id("popup");
 let span = q(".popup__close");
+
+function close() {
+    modal.style.display = "none";
+
+    onClose();
+    onClose = function () {
+    };
+
+    id('popup-content').innerHTML = '';
+}
+
 if (modal) {
     window.onclick = function (event) {
         if (event.target === modal) {
-            modal.style.display = "none";
-            onClose();
-            onClose = function () {
-            };
+            close();
         }
     }
 
-    span.onclick = function () {
-        modal.style.display = "none";
-        onClose();
-        onClose = function () {
-        };
-    }
+    span.onclick = close;
 }
 
 export function popup(params, onCloseCallback) {

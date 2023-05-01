@@ -41,7 +41,13 @@
         @endif
 
         <div class="question__next">
-            <button class="js-next-button question__next_button hidden">Next</button>
+            @if ($isLastQuestion)
+                <button class="js-show-results-button question__next_button hidden"
+                        data-game-id="{{ $game->id }}"
+                >Show Results</button>
+            @else
+                <button class="js-next-button question__next_button hidden">Next</button>
+            @endif
         </div>
     </div>
 

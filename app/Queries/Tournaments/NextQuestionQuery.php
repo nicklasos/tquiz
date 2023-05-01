@@ -9,7 +9,7 @@ use App\Models\GameQuestionAnswer;
 
 class NextQuestionQuery
 {
-    public function number(Game $game): ?int
+    public function get(Game $game): NextQuestionDto
     {
         $answersCount = GameQuestionAnswer::query()
             ->where('temp_user_id', $game->temp_user_id)
@@ -19,9 +19,12 @@ class NextQuestionQuery
         $max = $game->tournament->questions;
 
         if ($answersCount >= $max) {
-            return null;
+            return new NextQuestionDto(null, null);
         }
 
-        return $answersCount + 1;
+        return new NextQuestionDto(
+            $answersCount + 1,
+             $answersCount + 1 >= $max,
+        );
     }
 }

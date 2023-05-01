@@ -8,7 +8,6 @@ export function runResults() {
 
         popup({
             url: `/tournament/${gameId}/leaderboard`,
-        }, function () {
         });
     });
 }

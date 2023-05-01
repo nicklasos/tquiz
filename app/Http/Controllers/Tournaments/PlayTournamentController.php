@@ -29,9 +29,7 @@ class PlayTournamentController extends Controller
 
     public function showQuestion(Game $game)
     {
-        if (!Gate::allows('can-play-game', $game)) {
-            abort(403);
-        }
+        Gate::authorize('can-play-game', $game);
 
         if ($this->gamePlayQuery->isAlreadyPlaying($game)) {
             return to_route('home');
@@ -41,14 +39,16 @@ class PlayTournamentController extends Controller
 
         $this->answerTimingSession->set($game);
 
-        return view('tournaments.play', compact('question', 'game'));
+        return view('tournaments.play', [
+            'question' => $question,
+            'game' => $game,
+            'isLastQuestion' => false,
+        ]);
     }
 
     public function answerQuestion(Game $game, int $answerId)
     {
-        if (!Gate::allows('can-play-game', $game)) {
-            abort(403);
-        }
+        Gate::authorize('can-play-game', $game);
 
         // @todo: check is question already answered
 
@@ -58,9 +58,9 @@ class PlayTournamentController extends Controller
             $this->answerTimingSession->getSeconds($game),
         );
 
-        $nextQuestionNumber = $this->nextQuestion->number($game);
+        $nextQuestion = $this->nextQuestion->get($game);
 
-        if (!$nextQuestionNumber) {
+        if (!$nextQuestion->nextQuestionNumber) {
             $this->finishTournament->finish($game);
 
             $leaderboards = $this->leaderboardQuery->getByGame($game);
@@ -68,10 +68,14 @@ class PlayTournamentController extends Controller
             return view('tournaments.leaderboard', compact('leaderboards'));
         }
 
-        $question = $this->gamePlayQuery->question($game, $nextQuestionNumber);
+        $question = $this->gamePlayQuery->question($game, $nextQuestion->nextQuestionNumber);
 
         $this->answerTimingSession->set($game);
 
-        return view('components.tournaments.question', compact('game', 'question'));
+        return view('components.tournaments.question', [
+            'game' => $game,
+            'question' => $question,
+            'isLastQuestion' => $nextQuestion->isLastQuestion,
+        ]);
     }
 }

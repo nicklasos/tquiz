@@ -25,7 +25,7 @@
         <div class="header__container">
 
             <div class="header__logo">
-                <a href="{{ route('home') }}">TQuiz</a>
+                <a href="{{ route('home') }}">Un<span>trivial</span></a>
             </div>
             <div class="header__menu">
                 <ul>

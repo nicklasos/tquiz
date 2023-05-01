@@ -1,7 +1,7 @@
 <x-layout tab="home" js-page="home">
 
     <div class="main__text">
-        <h1>TQuiz</h1>
+        <h1>Untrivial Tournament</h1>
         <p>Multiplayer tournament trivia games</p>
     </div>
 

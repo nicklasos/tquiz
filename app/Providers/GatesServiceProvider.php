@@ -18,12 +18,22 @@ class GatesServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Tournaments
+        |--------------------------------------------------------------------------
+        */
+
         Gate::define('can-play-game', function ($user = null, Game $game = null) {
             return $game && $game->temp_user_id === TempUserSession::getId();
         });
 
         Gate::define('can-join-tournament', function ($user = null, Tournament $tournament = null) {
             return $tournament && $tournament->is_active && !$tournament->coming_soon;
+        });
+
+        Gate::define('can-view-result', function ($user = null, Game $game = null) {
+            return $game && $game->temp_user_id === TempUserSession::getId();
         });
     }
 }

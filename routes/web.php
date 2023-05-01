@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\Tournaments\LeaderboardController;
 use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalPagesController;

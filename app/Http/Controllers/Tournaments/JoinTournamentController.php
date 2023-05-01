@@ -17,9 +17,7 @@ class JoinTournamentController extends Controller
         JoinTournament  $joinTournament
     )
     {
-        if (!Gate::allows('can-join-tournament', $tournament)) {
-            abort(403);
-        }
+        Gate::authorize('can-join-tournament', $tournament);
 
         $game = $joinTournament->join(
             TempUserSession::getModelWithId(),
