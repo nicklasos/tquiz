@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Collection;
 
 class LeaderboardQuery
 {
+    /**
+     * @param Game $game
+     * @return Collection<Leaderboard>
+     */
     public function getByGame(Game $game): Collection
     {
         return Leaderboard::query()

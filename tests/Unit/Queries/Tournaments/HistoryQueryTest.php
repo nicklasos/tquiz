@@ -6,6 +6,7 @@ namespace Tests\Unit\Queries\Tournaments;
 
 use App\Models\Game;
 use App\Models\GameSeed;
+use App\Models\GameStatus;
 use App\Models\TempUser;
 use App\Models\Tournament;
 use App\Queries\Tournaments\HistoryQuery;
@@ -39,7 +40,7 @@ class HistoryQueryTest extends TestCase
 
         $historyQuery = app(HistoryQuery::class);
 
-        $historyGames = $historyQuery->get($tempUser);
+        $historyGames = $historyQuery->get($tempUser, [GameStatus::Done]);
 
         $this->assertTrue($historyGames->first()->is($game));
     }

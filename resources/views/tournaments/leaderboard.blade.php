@@ -1,11 +1,10 @@
-@forelse($leaderboards as $leaderboard)
-    {{ $leaderboard->place }}.
-    {{ $leaderboard->tempUser->name }}:
-    {{ $leaderboard->score }}
-    <br>
-@empty
-    Waiting for other players
-    <br>
-@endforelse
+<div class="tournaments-leaderboard">
 
-<a href="{{ route('home') }}">Play more</a>
+    <x-leaderboard :$game :$leaderboards/>
+
+    <div class="tournaments-leaderboard__buttons">
+        <a href="{{ route('home') }}"
+           class="tournaments-leaderboard__button question__next_button"
+        >Close</a>
+    </div>
+</div>

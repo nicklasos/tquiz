@@ -1,9 +1,15 @@
 <div class="leaderboard">
     <div class="leaderboard__title">
-        In progress...
+        @if ($game->isDone() && $game->place === 1)
+            YOU WON!
+        @elseif ($game->isDone())
+            RESULT
+        @else
+            In progress...
+        @endif
     </div>
     <div class="leaderboard__subtitle">
-        Fortnite
+        {{ $game->tournament->title }}
     </div>
     <div class="leaderboard__table">
         <div class="leaderboard__table_header">
@@ -17,62 +23,89 @@
                 Score
             </div>
         </div>
-        <div class="leaderboard__row position-1">
-            <div class="col-1">
-                <img src="/img/icons/trophy-1.svg" alt="1 place icon">
-                1
-            </div>
-            <div class="col-2">
-                You
-            </div>
-            <div class="col-3">
-                <div class="leaderboard_score">
-                    955
+        @if ($game->isDone())
+            @foreach($leaderboards as $leaderboard)
+                <div @class([
+                    'leaderboard__row',
+                    "position-{$leaderboard->place}",
+                    'position-you' => $leaderboard->is_main_user,
+                ])>
+                    <div class="col-1">
+                        @if ($leaderboard->isWinningPlace())
+                            <img src="/img/icons/trophy-{{ $leaderboard->place }}.svg"
+                                 alt="{{ $leaderboard->place }} place icon">
+                        @endif
+                        {{ $leaderboard->place }}
+                    </div>
+                    <div class="col-2">
+                        @if($leaderboard->is_main_user)
+                            (You)
+                        @endif
+                        {{ $leaderboard->tempUser->name }}
+                    </div>
+                    <div class="col-3">
+                        <div class="leaderboard_score">
+                            {{ $leaderboard->score }}
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @elseif ($game->isWaitingParticipants())
+            <div @class([
+                'leaderboard__row',
+                'position-1',
+                'position-you' => true,
+            ])>
+                <div class="col-1">
+                    <img src="/img/icons/trophy-1.svg" alt="1 place icon"> 1
+                </div>
+                <div class="col-2">
+                    (You) {{ $game->tempUser->name }}
+                </div>
+                <div class="col-3">
+                    <div class="leaderboard_score">
+                        {{ $game->score }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="leaderboard__row position-2">
-            <div class="col-1">
-                <img src="/img/icons/trophy-2.svg" alt="2 place icon">
-                2
-            </div>
-            <div class="col-2">
-                Crash Bandicoot
-            </div>
-            <div class="col-3">
-                495
-            </div>
-        </div>
-        <div class="leaderboard__row position-3">
-            <div class="col-1">
-                <img src="/img/icons/trophy-3.svg" alt="3 place icon">
-                3
-            </div>
-            <div class="col-2">
-                Some Dude
-            </div>
-            <div class="col-3">
-                372
-            </div>
-        </div>
-        <div class="leaderboard__row">
-            <div class="col-1">
-                4
-            </div>
-            <div class="col-2">
-                Other Dude
-            </div>
-            <div class="col-3">
-                270
-            </div>
-        </div>
-        <div class="leaderboard__row">
-            <div class="leaderboard__row_waiting">
-                Waiting for participants
-            </div>
-        </div>
-    </div>
-    <div class="leaderboard__buttons">
-
+            @for ($i = 0; $i < $game->tournament->players; $i++)
+                <div class="leaderboard__row">
+                    <div class="leaderboard__row_waiting">
+                        Waiting for participants
+                    </div>
+                </div>
+            @endfor
+        @elseif ($game->isFakeWaiting())
+            @foreach($leaderboards as $leaderboard)
+                <div @class([
+                    'leaderboard__row',
+                    "position-{$leaderboard->place}",
+                    'position-you' => $leaderboard->is_main_user,
+                ])>
+                    <div class="col-1">
+                        @if ($leaderboard->isWinningPlace())
+                            <img src="/img/icons/trophy-{{ $leaderboard->place }}.svg"
+                                 alt="{{ $leaderboard->place }} place icon">
+                        @endif
+                        {{ $leaderboard->place }}
+                    </div>
+                    <div class="col-2">
+                        @if($leaderboard->is_main_user)
+                            (You)
+                        @endif
+                        {{ $leaderboard->tempUser->name }}
+                    </div>
+                    <div class="col-3">
+                        <div class="leaderboard_score">
+                            @if ($leaderboard->isPlaying())
+                                Playing
+                            @else
+                                {{ $leaderboard->score }}
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
     </div>
 </div>

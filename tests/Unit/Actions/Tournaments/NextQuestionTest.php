@@ -73,14 +73,14 @@ class NextQuestionTest extends TestCase
         $answerAction = app(AnswerQuestion::class);
         $nextQuestion = app(NextQuestionQuery::class);
 
-        $this->assertEquals(1, $nextQuestion->get($game));
+        $this->assertEquals(1, $nextQuestion->get($game)->number);
 
         $answerAction->answer($game, $answer->id, 1);
 
-        $this->assertEquals(2, $nextQuestion->get($game));
+        $this->assertEquals(2, $nextQuestion->get($game)->number);
 
         $answerAction->answer($game, $answer->id, 1);
 
-        $this->assertNull($nextQuestion->get($game));
+        $this->assertNull($nextQuestion->get($game)->number);
     }
 }

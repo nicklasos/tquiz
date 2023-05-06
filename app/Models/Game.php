@@ -103,4 +103,19 @@ class Game extends Model
             GameStatus::WaitingFakeParticipants,
         ]);
     }
+
+    public function isWaitingParticipants(): bool
+    {
+        return $this->status === GameStatus::WaitingParticipants;
+    }
+
+    public function isFakeWaiting(): bool
+    {
+        return $this->status === GameStatus::WaitingFakeParticipants;
+    }
+
+    public function isDone(): bool
+    {
+        return $this->status === GameStatus::Done;
+    }
 }

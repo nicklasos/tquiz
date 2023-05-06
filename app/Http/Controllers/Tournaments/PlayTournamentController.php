@@ -12,6 +12,7 @@ use App\Queries\Tournaments\LeaderboardQuery;
 use App\Queries\Tournaments\GamePlayQuery;
 use App\Queries\Tournaments\NextQuestionQuery;
 use App\Services\Tournaments\AnswerTimingSession;
+use App\Services\Tournaments\LeaderboardService;
 use Gate;
 
 class PlayTournamentController extends Controller
@@ -22,7 +23,7 @@ class PlayTournamentController extends Controller
         private readonly NextQuestionQuery   $nextQuestion,
         private readonly FinishTournament    $finishTournament,
         private readonly AnswerTimingSession $answerTimingSession,
-        private readonly LeaderboardQuery    $leaderboardQuery,
+        private readonly LeaderboardService  $leaderboardService,
     )
     {
     }
@@ -60,22 +61,25 @@ class PlayTournamentController extends Controller
 
         $nextQuestion = $this->nextQuestion->get($game);
 
-        if (!$nextQuestion->nextQuestionNumber) {
+        if (!$nextQuestion->number) {
             $this->finishTournament->finish($game);
 
-            $leaderboards = $this->leaderboardQuery->getByGame($game);
+            $leaderboards = $this->leaderboardService->getByGame($game);
 
-            return view('tournaments.leaderboard', compact('leaderboards'));
+            return view('tournaments.leaderboard', compact(
+                'leaderboards',
+                'game',
+            ));
         }
 
-        $question = $this->gamePlayQuery->question($game, $nextQuestion->nextQuestionNumber);
+        $question = $this->gamePlayQuery->question($game, $nextQuestion->number);
 
         $this->answerTimingSession->set($game);
 
         return view('components.tournaments.question', [
             'game' => $game,
             'question' => $question,
-            'isLastQuestion' => $nextQuestion->isLastQuestion,
+            'isLastQuestion' => $nextQuestion->isLast,
         ]);
     }
 }

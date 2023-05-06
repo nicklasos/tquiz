@@ -7,8 +7,8 @@ namespace App\Queries\Tournaments;
 class NextQuestionDto
 {
     public function __construct(
-        public readonly ?int $nextQuestionNumber,
-        public readonly ?bool $isLastQuestion,
+        public readonly ?int  $number,
+        public readonly ?bool $isLast,
     )
     {
     }

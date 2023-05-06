@@ -63,4 +63,19 @@ class Leaderboard extends Model
     {
         return $this->belongsTo(Game::class);
     }
+
+    public function isWinningPlace(): bool
+    {
+        return $this->place <= 3;
+    }
+
+    public function isPlaying(): bool
+    {
+        return $this->status === LeaderboardStatus::Playing;
+    }
+
+    public function isDone(): bool
+    {
+        return $this->status === LeaderboardStatus::Done;
+    }
 }

@@ -24,7 +24,7 @@ class CreateTempUser
             'name' => $this->names->generate(),
             'ip' => $tempUserDto->ip,
             'user_agent' => $tempUserDto->userAgent,
-            'referrer' => $tempUserDto->referer,
+            'referer' => $tempUserDto->referer,
             'start_url' => $tempUserDto->startUrl,
             'rnd' => random_int(1, 100),
         ]);

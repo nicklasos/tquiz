@@ -1,9 +1,3 @@
-@php
-    /**
-     * @var \App\Models\Question $question
-     */
-@endphp
-
 <div class="question">
     <div class="question__container">
         <h1>{{ $question->theme->name }}</h1>
@@ -41,13 +35,16 @@
         @endif
 
         <div class="question__next">
-            @if ($isLastQuestion)
-                <button class="js-show-results-button question__next_button hidden"
-                        data-game-id="{{ $game->id }}"
-                >Show Results</button>
-            @else
-                <button class="js-next-button question__next_button hidden">Next</button>
-            @endif
+            <button
+                class="js-next-button question__next_button hidden"
+                data-is-last-question="{{ $isLastQuestion ? 1 : 0 }}"
+            >
+                @if ($isLastQuestion)
+                    Show Results
+                @else
+                    Next
+                @endif
+            </button>
         </div>
     </div>
 

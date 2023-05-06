@@ -6,11 +6,16 @@ export function runTournament() {
     let gameId = null;
     let answerId = null;
 
-    click('question-container', '.js-show-results-button', function () {
-        console.log('leaderboard');
-    });
+    click('question-container', '.js-next-button', function (e) {
+        e.target.classList.add('hidden');
 
-    click('question-container', '.js-next-button', function () {
+        if (e.target.getAttribute('data-is-last-question') === '1') {
+            document.body.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+
         update({
             url: `/tournament/${gameId}/answer/${answerId}`,
             method: 'POST',

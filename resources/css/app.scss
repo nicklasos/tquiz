@@ -636,6 +636,10 @@ body {
         color: #B65AFF;
     }
 
+    .position-you {
+        background-color: #8e6eb2;
+    }
+
     .position-1 .col-1, .position-2 .col-1, .position-3 .col-1 {
         padding-left: 19px;
     }
@@ -669,6 +673,18 @@ body {
     }
 }
 
+// Tournaments leaderboard
+.tournaments-leaderboard {
+    &__buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    &__button {
+        width: 300px;
+        display: inline-block;
+    }
+}
 
 // Modal
 
