@@ -39,3 +39,7 @@ export function buttonLoader(e) {
     loader(e);
     unclickable(e);
 }
+
+export function getData(e, value) {
+    return e.target.attributes['data-' + value].value;
+}

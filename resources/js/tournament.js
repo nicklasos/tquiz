@@ -1,5 +1,5 @@
 import {update} from "./content_update";
-import {buttonLoader, click, q, qAll} from "./dom_helpers";
+import {buttonLoader, click, getData, q, qAll} from "./dom_helpers";
 
 export function runTournament() {
     let answered = false;
@@ -15,7 +15,7 @@ export function runTournament() {
     click('question-container', '.js-next-button', function (e) {
         buttonLoader(e);
 
-        if (e.target.getAttribute('data-is-last-question') === '1') {
+        if (getData(e, 'is-last-question') === '1') {
             document.body.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
@@ -43,10 +43,10 @@ export function runTournament() {
 
         answered = true;
 
-        gameId = e.target.attributes['data-game-id'].value;
-        answerId = e.target.attributes['data-answer-id'].value;
+        gameId = getData(e, 'game-id');
+        answerId = getData(e, 'answer-id');
 
-        let isCorrect = e.target.attributes['data-is-correct'].value;
+        let isCorrect = getData(e, 'is-correct');
         let nextButton = q('.js-next-button');
         let correctElements = qAll('[data-is-correct="1"]');
         let scrollTo = q('.js-scroll-to');
