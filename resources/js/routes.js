@@ -5,13 +5,14 @@ import {runHome} from "./home";
 
 
 export function router(page) {
-    if (page === 'tournament') {
-        runTournament();
-    } else if (page === 'results') {
-        runResults();
-    } else if (page === 'test') {
-        runTest();
-    } else if (page === 'home') {
-        runHome();
+    let routes = {
+        tournament: runTournament,
+        results: runResults,
+        home: runHome,
+        test: runTest,
+    };
+
+    if (routes.hasOwnProperty(page)) {
+        routes[page]();
     }
 }
