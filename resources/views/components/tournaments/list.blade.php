@@ -13,7 +13,10 @@
             @endif
 
             <div class="tournament__image">
-                <img src="/img/tournaments/fortnite.jpg" alt="fortnite">
+                @if ($tournament->getFirstMedia('image'))
+                    <img src="{{ $tournament->getFirstMediaUrl('image', 'preview') }}"
+                         alt="{{ $tournament->title }}">
+                @endif
             </div>
 
             <div class="tournament__body">

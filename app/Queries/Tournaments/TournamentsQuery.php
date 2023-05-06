@@ -15,6 +15,7 @@ class TournamentsQuery
     public function active(): Collection
     {
         return Tournament::query()
+            ->with('media')
             ->active()
             ->comingSoon(false)
             ->get();
@@ -23,6 +24,7 @@ class TournamentsQuery
     public function comingSoon(): Collection
     {
         return Tournament::query()
+            ->with('media')
             ->comingSoon()
             ->get();
     }

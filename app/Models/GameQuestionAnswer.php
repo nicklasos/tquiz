@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $seconds
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Game|null $game
  * @property-read \App\Models\GameSeed|null $gameSeed
  * @property-read \App\Models\QuestionAnswer|null $questionAnswer
  * @property-read \App\Models\TempUser|null $tempUser

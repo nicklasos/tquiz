@@ -2,9 +2,11 @@
     <div class="question__container">
         <h1>{{ $question->theme->name }}</h1>
 
-        <div class="question__image">
-            <img src="/img/tournaments/Image.jpg" alt="Tournament image">
-        </div>
+        @if ($question->getFirstMedia())
+            <div class="question__image">
+                {{ $question->getFirstMedia() }}
+            </div>
+        @endif
 
         <div class="question__text">
             {{ $question->question }}
