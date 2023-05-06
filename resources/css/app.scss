@@ -37,9 +37,20 @@ h2 {
     }
 }
 
+// Helpers
+
 .hidden {
     display: none;
 }
+
+.invisible {
+    visibility: hidden;
+}
+
+.unclickable {
+    pointer-events:none;
+}
+
 
 [class*="__container"] {
     padding: 0 15px;
@@ -772,3 +783,26 @@ body {
     }
 }
 
+
+// Loader
+
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    //display: inline-block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

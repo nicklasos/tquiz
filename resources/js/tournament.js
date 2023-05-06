@@ -1,13 +1,19 @@
 import {update} from "./content_update";
-import {click, q, qAll} from "./dom_helpers";
+import {buttonLoader, click, q, qAll} from "./dom_helpers";
 
 export function runTournament() {
     let answered = false;
     let gameId = null;
     let answerId = null;
 
+    click(
+        'question-container',
+        '.js-close-leaderboard-button',
+        buttonLoader,
+    );
+
     click('question-container', '.js-next-button', function (e) {
-        e.target.classList.add('hidden');
+        buttonLoader(e);
 
         if (e.target.getAttribute('data-is-last-question') === '1') {
             document.body.scrollIntoView({

@@ -2,7 +2,10 @@
     @foreach ($games as $game)
         <div class="results__result js-result-button" data-game-id="{{ $game->id }}">
             <div class="results__image">
-                <img src="/img/tournaments/fortnite.jpg" alt="fortnite">
+                @if ($game->tournament->getFirstMedia('image'))
+                    <img src="{{ $game->tournament->getFirstMediaUrl('image', 'preview') }}"
+                         alt="{{ $game->tournament->title }}">
+                @endif
             </div>
             <div class="results__body">
                 <div class="results__title">

@@ -26,3 +26,16 @@ export function q(query) {
 export function qAll(query) {
     return document.querySelectorAll(query);
 }
+
+export function loader(e) {
+    e.target.innerHTML = '<div class="loader"></div>';
+}
+
+export function unclickable(e) {
+    e.target.classList.add('unclickable');
+}
+
+export function buttonLoader(e) {
+    loader(e);
+    unclickable(e);
+}

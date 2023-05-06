@@ -19,7 +19,7 @@ class HistoryQuery
     public function get(TempUser $tempUser, array $statuses): Collection
     {
         return Game::query()
-            ->with('tournament')
+            ->with(['tournament', 'tournament.media'])
             ->where('temp_user_id', $tempUser->id)
             ->whereIn('status', $statuses)
             ->orderByDesc('id')
