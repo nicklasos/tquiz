@@ -48,9 +48,8 @@ h2 {
 }
 
 .unclickable {
-    pointer-events:none;
+    pointer-events: none;
 }
-
 
 [class*="__container"] {
     padding: 0 15px;
@@ -144,6 +143,10 @@ body {
     }
 
     &__avatar {
+        .avatar {
+            width: 29px;
+            border-radius: 16px;
+        }
     }
 }
 
@@ -595,6 +598,13 @@ body {
 
 
 .leaderboard {
+    .avatar {
+        width: 29px;
+        border-radius: 16px;
+        position: absolute;
+        top: 4px;
+    }
+
     &__title {
         font-weight: 700;
         font-size: 25px;
@@ -633,11 +643,22 @@ body {
         padding: 10px;
         position: relative;
 
-        img {
-            position: absolute;
-            top: 6px;
-            left: 4px;
-        }
+    }
+
+    &__trophy {
+        position: absolute;
+        top: 8px;
+        left: 4px;
+    }
+
+    &__name {
+        margin-left: 40px;
+        display: inline-block;
+        line-height: 17px;
+    }
+
+    &__you {
+        font-size: 12px;
     }
 
     &__row_waiting {
@@ -657,6 +678,8 @@ body {
 
     .col-1 {
         width: 35px;
+        display: flex;
+        align-items: center;
 
         @include xs {
             width: 65px;

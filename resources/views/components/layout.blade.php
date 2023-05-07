@@ -67,7 +67,7 @@
                 </ul>
             </div>
             <div class="header__avatar">
-                <img src="/img/icons/default_avatar.svg" alt="avatar">
+                <x-avatar :user="\App\Facades\TempUserSession::getModelWithId()" />
             </div>
 
         </div>

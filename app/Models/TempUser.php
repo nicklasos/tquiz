@@ -50,4 +50,9 @@ class TempUser extends Model
         'start_url',
         'rnd',
     ];
+
+    public function getAvatar(): string
+    {
+        return substr((string)$this->id, -2) . '.png';
+    }
 }

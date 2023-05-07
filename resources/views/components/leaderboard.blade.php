@@ -17,7 +17,7 @@
                 #
             </div>
             <div class="col-2">
-                Name
+                Player
             </div>
             <div class="col-3">
                 Score
@@ -32,16 +32,21 @@
                 ])>
                     <div class="col-1">
                         @if ($leaderboard->isWinningPlace())
-                            <img src="/img/icons/trophy-{{ $leaderboard->place }}.svg"
-                                 alt="{{ $leaderboard->place }} place icon">
+                            <img
+                                class="leaderboard__trophy"
+                                src="/img/icons/trophy-{{ $leaderboard->place }}.svg"
+                                alt="{{ $leaderboard->place }} place icon">
                         @endif
                         {{ $leaderboard->place }}
                     </div>
                     <div class="col-2">
-                        @if($leaderboard->is_main_user)
-                            (You)
-                        @endif
-                        {{ $leaderboard->tempUser->name }}
+                        <x-avatar :user="$leaderboard->tempUser"/>
+                        <span class="leaderboard__name">
+                            @if($leaderboard->is_main_user)
+                                <span class="leaderboard__you">(You)</span>
+                            @endif
+                            {{ $leaderboard->tempUser->name }}
+                        </span>
                     </div>
                     <div class="col-3">
                         <div class="leaderboard_score">
@@ -57,10 +62,14 @@
                 'position-you' => true,
             ])>
                 <div class="col-1">
-                    <img src="/img/icons/trophy-1.svg" alt="1 place icon"> 1
+                    <img src="/img/icons/trophy-1.svg" class="leaderboard__trophy" alt="1 place icon"> 1
                 </div>
                 <div class="col-2">
-                    (You) {{ $game->tempUser->name }}
+                    <x-avatar :user="$game->tempUser"/>
+                    <span class="leaderboard__name">
+                        <span class="leaderboard__you">(You)</span>
+                        {{ $game->tempUser->name }}
+                    </span>
                 </div>
                 <div class="col-3">
                     <div class="leaderboard_score">
@@ -90,10 +99,13 @@
                         {{ $leaderboard->place }}
                     </div>
                     <div class="col-2">
-                        @if($leaderboard->is_main_user)
-                            (You)
-                        @endif
-                        {{ $leaderboard->tempUser->name }}
+                        <x-avatar :user="$leaderboard->tempUser"/>
+                        <span class="leaderboard__name">
+                            @if($leaderboard->is_main_user)
+                                <span class="leaderboard__you">(You)</span>
+                            @endif
+                            {{ $leaderboard->tempUser->name }}
+                        </span>
                     </div>
                     <div class="col-3">
                         <div class="leaderboard_score">

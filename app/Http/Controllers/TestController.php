@@ -8,6 +8,10 @@ class TestController extends Controller
 {
     public function __invoke()
     {
+        $n = 1243243519;
+
+        echo substr((string)$n, -2);
+
         return view('test');
     }
 }

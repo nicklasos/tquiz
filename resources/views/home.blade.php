@@ -9,8 +9,10 @@
         <x-tournaments.list :$tournaments/>
 
 
-        <h2 class="main__coming_soon">Coming soon</h2>
-        <x-tournaments.list :tournaments="$comingSoon"/>
+        @if ($comingSoon->count())
+            <h2 class="main__coming_soon">Coming soon</h2>
+            <x-tournaments.list :tournaments="$comingSoon"/>
+        @endif
     </div>
 
 </x-layout>
