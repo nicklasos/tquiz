@@ -533,10 +533,20 @@ body {
 
         color: black;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+        @include galaxy-fold {
+            flex-direction: column;
+            height: initial;
+        }
     }
 
     &__image img {
         height: 150px;
+
+        @include galaxy-fold {
+            height: initial;
+            width: 100%;
+        }
     }
 
     &__body {
@@ -752,6 +762,10 @@ body {
         @include xs {
             margin: 0 auto;
         }
+
+        @include galaxy-fold {
+            padding-bottom: 0;
+        }
     }
 
     &__close {
@@ -779,6 +793,10 @@ body {
 
     &__body {
         padding: 2px 16px;
+
+        @include galaxy-fold {
+            padding: 0;
+        }
     }
 }
 
