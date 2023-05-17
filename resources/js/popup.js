@@ -41,7 +41,9 @@ export function popup(params, onCloseCallback) {
         },
     });
 
-    onClose = onCloseCallback;
+    if (onCloseCallback) {
+        onClose = onCloseCallback;
+    }
 
     modal.style.display = "block";
 }
