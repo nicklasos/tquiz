@@ -174,6 +174,24 @@ body {
 .tournament {
     position: relative;
 
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 25px;
+    height: 150px;
+
+    @include md {
+        height: 160px;
+    }
+
+    @include galaxy-fold {
+        flex-direction: column;
+        height: inherit;
+    }
+
     .coming_soon {
         position: absolute;
         width: 100%;
@@ -188,25 +206,12 @@ body {
         border-radius: 5px;
     }
 
-    display: flex;
-    background: #FFFFFF;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 25px;
-    height: 150px;
-
-    @include galaxy-fold {
-        flex-direction: column;
-        height: inherit;
-    }
-
-    @include md {
-        height: 160px;
-    }
-
     &__image {
+        height: 150px;
+
+        @include md {
+            height: 160px;
+        }
     }
 
     &__image img {

@@ -40,6 +40,7 @@ class ImportQuestionsCommand extends Command
         }
 
         foreach ($lines->slice(1) as $line) {
+            dump($line);
             [
                 $themeStr,
                 $importId,
