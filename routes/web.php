@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Tournaments\AnswerController;
 use App\Http\Controllers\Tournaments\LeaderboardController;
 use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\HomeController;
@@ -37,13 +38,10 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     Route::post('tournament/{tournament}', JoinTournamentController::class)
         ->name('tournament.join');
 
-    Route::get('tournament/{game}/play', [PlayTournamentController::class, 'showQuestion'])
+    Route::get('tournament/{game}/play', PlayTournamentController::class)
         ->name('tournament.play');
 
-    Route::post(
-        'tournament/{game}/answer/{answerId}',
-        [PlayTournamentController::class, 'answerQuestion'],
-    );
+    Route::post('tournament/{game}/answer/{answerId}', AnswerController::class);
 
     Route::get('results', ResultsController::class)->name('results');
 
