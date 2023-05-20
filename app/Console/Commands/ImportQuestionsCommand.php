@@ -26,6 +26,7 @@ class ImportQuestionsCommand extends Command
         $this->info('Import questions');
 
         $fileLocation = base_path('stuff/import/questions.csv');
+        $imagesLocation = base_path('stuff/import/images');
 
         try {
             $lines = File::lines($fileLocation);
@@ -65,6 +66,17 @@ class ImportQuestionsCommand extends Command
 
             $question->save();
 
+            if ($image = $this->resolveFile("{$imagesLocation}/{$importId}")) {
+                if ($question->getFirstMedia()) {
+                    $question->deleteMedia($question->getFirstMedia());
+                }
+
+                $question
+                    ->addMedia($image)
+                    ->preservingOriginal()
+                    ->toMediaCollection();
+            }
+
             $answers = $question->answers;
 
             foreach ([$answer1, $answer2, $answer3, $answer4] as $i => $answer) {
@@ -80,5 +92,16 @@ class ImportQuestionsCommand extends Command
                 }
             }
         }
+    }
+
+    private function resolveFile(string $name): string|false
+    {
+        $file = File::glob($name . '.*');
+
+        if (isset($file[0])) {
+            return $file[0];
+        }
+
+        return false;
     }
 }

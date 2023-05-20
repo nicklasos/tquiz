@@ -15,12 +15,12 @@ export function runTournament() {
     click('question-container', '.js-next-button', function (e) {
         buttonLoader(e);
 
-        if (getData(e, 'is-last-question') === '1') {
+        // if (getData(e, 'is-last-question') === '1') {
             document.body.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
             });
-        }
+        // }
 
         update({
             url: `/tournament/${gameId}/answer/${answerId}`,

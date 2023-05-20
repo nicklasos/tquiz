@@ -19,4 +19,5 @@ yarn-error.log
 /.vscode
 /public/vendor/telescope
 /stuff/import/*.csv
+/stuff/import/images/*
 /public/sitemap.xml
