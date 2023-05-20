@@ -67,14 +67,13 @@ class ImportQuestionsCommand extends Command
             $question->save();
 
             if ($image = $this->resolveFile("{$imagesLocation}/{$importId}")) {
-                if ($question->getFirstMedia()) {
-                    $question->deleteMedia($question->getFirstMedia());
+                if (!$question->getFirstMedia()) {
+//                    $question->deleteMedia($question->getFirstMedia());
+                    $question
+                        ->addMedia($image)
+                        ->preservingOriginal()
+                        ->toMediaCollection();
                 }
-
-                $question
-                    ->addMedia($image)
-                    ->preservingOriginal()
-                    ->toMediaCollection();
             }
 
             $answers = $question->answers;
