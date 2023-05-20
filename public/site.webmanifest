@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Untrivial Tournament",
+    "short_name": "untrivial",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -8,7 +8,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#591A8A",
+    "background_color": "#591A8A",
     "display": "standalone"
 }
