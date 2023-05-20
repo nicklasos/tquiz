@@ -5,4 +5,6 @@
 
     </div>
 
+    <x-preload-images :$images />
+
 </x-layout>

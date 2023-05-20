@@ -8,6 +8,7 @@ use App\Actions\Tournaments\FinishTournament;
 use App\Actions\Tournaments\AnswerQuestion;
 use App\Http\Controllers\Controller;
 use App\Models\Game;
+use App\Queries\Images\GameImagesQuery;
 use App\Queries\Tournaments\LeaderboardQuery;
 use App\Queries\Tournaments\GamePlayQuery;
 use App\Queries\Tournaments\NextQuestionQuery;
@@ -24,6 +25,7 @@ class PlayTournamentController extends Controller
         private readonly FinishTournament    $finishTournament,
         private readonly AnswerTimingSession $answerTimingSession,
         private readonly LeaderboardService  $leaderboardService,
+        private readonly GameImagesQuery     $gameImagesQuery,
     )
     {
     }
@@ -40,10 +42,13 @@ class PlayTournamentController extends Controller
 
         $this->answerTimingSession->set($game);
 
+        $images = $this->gameImagesQuery->allSeedImages($game->game_seed_id);
+
         return view('tournaments.play', [
             'question' => $question,
             'game' => $game,
             'isLastQuestion' => false,
+            'images' => $images,
         ]);
     }
 
