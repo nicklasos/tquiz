@@ -6,6 +6,7 @@ namespace App\Services\TempUsers;
 
 use App\Actions\TempUsers\CreateTempUser;
 use App\Actions\TempUsers\CreateTempUserDto;
+use App\Models\TempUser;
 use App\Services\Geo\IP;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,11 @@ class TempUserAuth
 
     public function authorize(Request $request): void
     {
-        if (\App\Facades\TempUserSession::getId()) {
-            return;
+        if ($id = \App\Facades\TempUserSession::getId()) {
+            // @todo: refactor
+            if (TempUser::find($id)) {
+                return;
+            }
         }
 
         // @todo: check for bots
