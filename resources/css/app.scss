@@ -803,6 +803,7 @@ body {
 
     &__body {
         padding: 2px 16px;
+        min-height: 300px;
 
         @include galaxy-fold {
             padding: 0;
