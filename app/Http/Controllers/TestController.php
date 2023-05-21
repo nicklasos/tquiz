@@ -8,8 +8,6 @@ class TestController extends Controller
 {
     public function __invoke()
     {
-        dd(\App\Facades\TempUserSession::getModelWithId());
-
         return view('test');
     }
 }
