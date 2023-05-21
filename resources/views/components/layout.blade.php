@@ -36,10 +36,16 @@
             <div class="header__logo">
                 <a href="{{ route('home') }}">Un<span>trivial</span></a>
             </div>
-            <div class="header__menu">
+            <div class="header__menu" id="header-menu">
                 <ul>
                     <li>
-                        <a href="{{ route('home') }}" @class(['active' => $attributes->get('tab') === 'home'])>
+                        <a href="{{ route('home') }}"
+                            @class([
+                                'active' => $attributes->get('tab') === 'home',
+                                'js-menu-button',
+                            ])
+                        >
+
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -54,7 +60,13 @@
                             Home</a>
                     </li>
                     <li>
-                        <a href="{{ route('results') }}" @class(['active' => $attributes->get('tab') === 'results'])>
+                        <a href="{{ route('results') }}"
+                            @class([
+                                'active' => $attributes->get('tab') === 'results',
+                                'js-menu-button',
+                            ])
+                        >
+
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path

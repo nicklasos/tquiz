@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Game;
 use App\Services\Tournaments\LeaderboardService;
 use Gate;
+use Illuminate\Support\Sleep;
 
 class LeaderboardController extends Controller
 {

@@ -12,7 +12,7 @@
                     {{ $game->tournament->title }}
                 </div>
                 <div class="results__subtitle">
-                    Players: 5<br>
+                    Players: {{ $game->tournament->players }}<br>
                     Your score: {{ $game->score }}<br>
                     @if ($game->isWaiting())
                         <br>Waiting Participants...

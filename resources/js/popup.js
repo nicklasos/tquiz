@@ -5,16 +5,19 @@ let onClose = function () {
 };
 
 let modal = id("popup");
+let modalBody = id('popup-body');
 let span = q(".popup__close");
+let popupContent = id('popup-content');
 
 function close() {
     modal.style.display = "none";
+    modalBody.style.display = "none";
 
     onClose();
     onClose = function () {
     };
 
-    id('popup-content').innerHTML = '';
+    popupContent.innerHTML = '';
 }
 
 if (modal) {
@@ -32,18 +35,22 @@ export function popup(params, onCloseCallback) {
         return;
     }
 
+    modal.style.display = 'block';
+
     update({
         url: params.url,
         method: 'GET',
         id: 'popup-content',
         onError: function (err) {
             console.log(err);
+            close();
+        },
+        callback: function () {
+            modalBody.style.display = "block";
         },
     });
 
     if (onCloseCallback) {
         onClose = onCloseCallback;
     }
-
-    modal.style.display = "block";
 }

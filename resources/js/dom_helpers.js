@@ -27,16 +27,22 @@ export function qAll(query) {
     return document.querySelectorAll(query);
 }
 
-export function loader(e) {
-    e.target.innerHTML = '<div class="loader"></div>';
+export function loader(e, params) {
+    let classList = 'loader';
+
+    if (params && params.hasOwnProperty('small')) {
+        classList += ' loader__small';
+    }
+
+    e.target.innerHTML = `<div class="${classList}"></div>`;
 }
 
 export function unclickable(e) {
     e.target.classList.add('unclickable');
 }
 
-export function buttonLoader(e) {
-    loader(e);
+export function buttonLoader(e, params) {
+    loader(e, params);
     unclickable(e);
 }
 

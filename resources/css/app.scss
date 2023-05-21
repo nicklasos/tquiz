@@ -13,6 +13,14 @@ h2 {
     margin-bottom: 15px;
 }
 
+h3 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 15px;
+    line-height: 24px;
+}
+
 .wrapper {
     overflow: hidden;
     display: flex;
@@ -109,6 +117,14 @@ body {
     }
 
     &__menu {
+        li {
+            width: 85px;
+
+            @media screen and (max-width: 350px) {
+                width: 68px;
+            }
+        }
+
         a {
             padding: 5px 6px;
             border-radius: 5px;
@@ -529,6 +545,18 @@ body {
 // Results
 
 .results {
+    &__no_tournaments {
+        text-align: center;
+
+        h3 {
+            margin-bottom: 55px;
+        }
+
+        a {
+            padding: 15px 40px;
+        }
+    }
+
     &__result {
         cursor: pointer;
 
@@ -665,11 +693,11 @@ body {
 
     }
 
-    &__trophy {
-        position: absolute;
-        top: 8px;
-        left: 4px;
-    }
+    //&__trophy {
+        //position: absolute;
+        //top: 8px;
+        //left: 4px;
+    //}
 
     &__name {
         margin-left: 40px;
@@ -694,13 +722,17 @@ body {
     }
 
     .position-1 .col-1, .position-2 .col-1, .position-3 .col-1 {
-        padding-left: 19px;
+        //padding-left: 19px;
     }
 
     .col-1 {
         width: 35px;
         display: flex;
         align-items: center;
+
+        img {
+            margin-right: 2px;
+        }
 
         @include xs {
             width: 65px;
@@ -747,7 +779,7 @@ body {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 60px;
     left: 0;
     top: 0;
     width: 100%;
@@ -757,6 +789,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
 
     &__content {
+        display: none;
         border-radius: 5px;
         position: relative;
         background-color: $main;
@@ -849,7 +882,26 @@ body {
     margin: 0 auto;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
+
+    &__small {
+        width: 14px;
+        height: 14px;
+    }
+
+    &__big {
+        width: 30px;
+        height: 30px;
+        border: 5px solid #FFF;
+        border-bottom-color: transparent;
+    }
+
+    &__popup {
+        position: relative;
+        top: 30%;
+    }
 }
+
+
 
 @keyframes rotation {
     0% {
