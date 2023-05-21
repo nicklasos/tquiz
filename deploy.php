@@ -8,7 +8,7 @@ require 'contrib/npm.php';
 
 set('repository', 'git@github.com:nicklasos/tquiz.git');
 
-add('shared_files', []);
+add('shared_files', ['public/sitemap.xml']);
 add('shared_dirs', []);
 add('writable_dirs', []);
 
