@@ -10,12 +10,12 @@ class RandomLeaderboardStatus
 {
     public function delayNeeded(): bool
     {
-        return mt_rand(1, 10) <= 5;
+        return mt_rand(1, 10) <= 6;
     }
 
     public function get(): LeaderboardStatus
     {
-        if (mt_rand(1, 10) <= 5) {
+        if (mt_rand(1, 10) <= 6) {
             return LeaderboardStatus::Done;
         }
 
