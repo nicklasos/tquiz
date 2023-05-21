@@ -31,7 +31,7 @@ class TempUserAuth
 
         $createTempUserDto = new CreateTempUserDto(
             IP::get(),
-            $request->header('user-agent'),
+            $request->header('user-agent', ''),
             $request->header('referer', ''),
             $request->fullUrl(),
         );
