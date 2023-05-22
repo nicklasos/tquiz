@@ -23,7 +23,7 @@ class GameImagesQuery
             ])
             ->whereGameSeedId($gameSeedId)
             ->get()
-            ->map(fn(GameSeedQuestion $q) => $q->question->getFirstMediaUrl())
+            ->map(fn(GameSeedQuestion $q) => $q->question->getFirstMediaUrl('image'))
             ->filter();
     }
 }
