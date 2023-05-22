@@ -4,7 +4,7 @@ import {preloadImages} from "./preload_images";
 
 export function runTournament() {
 
-    // setTimeout(preloadImages, 1000);
+    setTimeout(preloadImages, 1000);
 
     let answered = false;
     let gameId = null;

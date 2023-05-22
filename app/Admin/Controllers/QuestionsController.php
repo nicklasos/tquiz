@@ -72,7 +72,7 @@ class QuestionsController extends AdminController
         $form->switch('is_active', __('Active'));
 
         $form->mediaLibrary('image', 'Image')
-            ->responsive()
+//            ->responsive()
             ->removable();
 
         $form->hasMany('answers', 'Answers', function (Form\NestedForm $form) {

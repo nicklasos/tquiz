@@ -75,7 +75,7 @@ class TournamentsController extends AdminController
         $form->multipleSelect('themes','Theme')->options(Theme::all()->pluck('name','id'));
 
         $form->mediaLibrary('image', 'Image')
-            ->responsive()
+//            ->responsive()
             ->removable();
 
         $form->number('players', __('Players'));
