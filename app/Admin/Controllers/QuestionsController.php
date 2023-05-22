@@ -30,6 +30,7 @@ class QuestionsController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('theme.name', __('Theme'));
         $grid->column('question', __('Question'));
+        $grid->column('is_active', __('Active'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -49,6 +50,7 @@ class QuestionsController extends AdminController
         $show->field('id', __('Id'));
         $show->field('theme_id', __('Theme id'));
         $show->field('question', __('Question'));
+        $show->field('is_active', __('Active'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -67,6 +69,7 @@ class QuestionsController extends AdminController
         $form->select('theme_id')->options(Theme::all()->pluck('name','id'));
 
         $form->textarea('question', __('Question'));
+        $form->switch('is_active', __('Active'));
 
         $form->mediaLibrary('image', 'Image')
             ->responsive()

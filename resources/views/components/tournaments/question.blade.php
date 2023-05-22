@@ -2,9 +2,9 @@
     <div class="question__container">
         <h1>{{ $question->theme->title }}</h1>
 
-        @if ($question->getFirstMedia())
+        @if ($question->getFirstMedia('image'))
             <div class="question__image">
-                {{ $question->getFirstMedia() }}
+                {{ $question->getFirstMedia('image') }}
             </div>
         @endif
 

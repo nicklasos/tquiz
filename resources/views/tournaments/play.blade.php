@@ -5,6 +5,6 @@
 
     </div>
 
-    <x-preload-images :$images />
+{{--    <x-preload-images :$images />--}}
 
 </x-layout>
