@@ -165,5 +165,6 @@
     </footer>
 </div>
 <x-popup />
+<x-debug />
 </body>
 </html>
