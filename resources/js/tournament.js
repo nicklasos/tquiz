@@ -30,14 +30,15 @@ export function runTournament() {
             url: `/tournament/${gameId}/answer/${answerId}`,
             method: 'POST',
             id: 'question-container',
+            callback: function () {
+                answered = false;
+                gameId = null;
+                answerId = null;
+            },
             onError: function (err) {
                 console.log(err);
             },
         });
-
-        answered = false;
-        gameId = null;
-        answerId = null;
     });
 
     click('question-container', '.js-answer-button', function (e) {
