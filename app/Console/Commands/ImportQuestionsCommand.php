@@ -73,7 +73,7 @@ class ImportQuestionsCommand extends Command
                     $question
                         ->addMedia($image)
                         ->preservingOriginal()
-                        ->withResponsiveImages()
+//                        ->withResponsiveImages()
                         ->toMediaCollection('image');
                 }
             }
