@@ -1,6 +1,6 @@
 <div class="question">
     <div class="question__container">
-        <h1>{{ $question->theme->name }}</h1>
+        <h1>{{ $question->theme->title }}</h1>
 
         @if ($question->getFirstMedia())
             <div class="question__image">

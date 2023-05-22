@@ -28,6 +28,7 @@ class ThemesController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
+        $grid->column('title', __('Title'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -46,6 +47,7 @@ class ThemesController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
+        $show->field('title', __('Title'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -62,6 +64,7 @@ class ThemesController extends AdminController
         $form = new Form(new Theme());
 
         $form->text('name', __('Name'));
+        $form->text('title', __('Title'));
 
         return $form;
     }
