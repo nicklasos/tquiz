@@ -6,6 +6,5 @@ return [
         'tiktok' => 'https://www.tiktok.com/@untrivialgg',
         'twitter' => 'https://twitter.com/untrivialgg',
         'discord' => 'https://discord.gg/Z7JzHYEV',
-        'instagram' => 'https://'
     ],
 ];

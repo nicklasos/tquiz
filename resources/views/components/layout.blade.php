@@ -146,13 +146,13 @@
                         <a href="{{ route('home') }}">TQuiz</a>
                     </h2>
                     <div>
-                        <a href="#" class="link">Privacy Policy</a>
+                        <a href="{{ route('privacy') }}" class="link">Privacy Policy</a>
                     </div>
                     <div>
-                        <a href="#" class="link">Terms of Use</a>
+                        <a href="{{ route('tos') }}" class="link">Terms of Use</a>
                     </div>
                     <div>
-                        <a href="#" class="link">About Us</a>
+                        <a href="{{ route('about') }}" class="link">About Us</a>
                     </div>
                 </div>
             </div>

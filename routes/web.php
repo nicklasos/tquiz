@@ -62,6 +62,6 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     Route::post('question/{id}/dislike', [QuestionLikesController::class, 'dislike']);
 });
 
-Route::view('privacy-policy', 'legal.privacy');
-Route::view('terms-of-service', 'legal.tos');
-Route::view('about-us', 'legal.about');
+Route::view('privacy-policy', 'legal.privacy')->name('privacy');
+Route::view('terms-of-service', 'legal.tos')->name('tos');
+Route::view('about-us', 'legal.about')->name('about');
