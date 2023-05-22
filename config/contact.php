@@ -1,10 +1,11 @@
 <?php
 
 return [
-    'email' => 'nicklasos@gmail.com',
+    'email' => 'untrivial.gg@gmail.com',
     'social' => [
-        'tiktok' => '',
-        'twitter' => '',
-        'discord' => '',
+        'tiktok' => 'https://www.tiktok.com/@untrivialgg',
+        'twitter' => 'https://twitter.com/untrivialgg',
+        'discord' => 'https://discord.gg/Z7JzHYEV',
+        'instagram' => 'https://'
     ],
 ];
