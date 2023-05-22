@@ -1,7 +1,11 @@
 import {update} from "./content_update";
 import {buttonLoader, click, getData, q, qAll} from "./dom_helpers";
+import {preloadImages} from "./preload_images";
 
 export function runTournament() {
+
+    setTimeout(preloadImages, 1000);
+
     let answered = false;
     let gameId = null;
     let answerId = null;
