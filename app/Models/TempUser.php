@@ -53,6 +53,6 @@ class TempUser extends Model
 
     public function getAvatar(): string
     {
-        return substr((string)$this->id, -2) . '.png';
+        return intval(substr((string)$this->id, -2)) . '.png';
     }
 }
