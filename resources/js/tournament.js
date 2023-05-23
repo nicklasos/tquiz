@@ -9,6 +9,14 @@ export function runTournament() {
     let answered = false;
     let gameId = null;
     let answerId = null;
+    let updateCallback = null;
+    let updateClicked = false;
+    let scrollTop = function () {
+        document.body.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
 
     click(
         'question-container',
@@ -19,24 +27,14 @@ export function runTournament() {
     click('question-container', '.js-next-button', function (e) {
         buttonLoader(e);
 
-        document.body.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        });
+        updateClicked = true;
 
-        update({
-            url: `/tournament/${gameId}/answer/${answerId}`,
-            method: 'POST',
-            id: 'question-container',
-            callback: function () {
-                answered = false;
-                gameId = null;
-                answerId = null;
-            },
-            onError: function (err) {
-                console.log(err);
-            },
-        });
+        if (updateCallback) {
+            updateCallback();
+            updateCallback = null;
+            updateClicked = false;
+            scrollTop();
+        }
     });
 
     click('question-container', '.js-answer-button', function (e) {
@@ -72,6 +70,30 @@ export function runTournament() {
         scrollTo.scrollIntoView({
             behavior: "smooth",
             block: "nearest",
+        });
+
+        update({
+            url: `/tournament/${gameId}/answer/${answerId}`,
+            method: 'POST',
+            id: 'question-container',
+            instantUpdate: false,
+            callback: function (update) {
+                answered = false;
+                gameId = null;
+                answerId = null;
+
+                if (updateClicked) {
+                    updateCallback = null;
+                    updateClicked = false;
+                    update();
+                    scrollTop();
+                } else {
+                    updateCallback = update;
+                }
+            },
+            onError: function (err) {
+                console.log(err);
+            },
         });
     });
 }

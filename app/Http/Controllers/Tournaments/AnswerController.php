@@ -13,6 +13,7 @@ use App\Queries\Tournaments\NextQuestionQuery;
 use App\Services\Tournaments\AnswerTimingSession;
 use App\Services\Tournaments\LeaderboardService;
 use Gate;
+use Illuminate\Support\Sleep;
 
 class AnswerController extends Controller
 {
@@ -30,6 +31,8 @@ class AnswerController extends Controller
     public function __invoke(Game $game, int $answerId)
     {
         Gate::authorize('can-play-game', $game);
+
+        Sleep::sleep(2);
 
         // @todo: check is question already answered
 
