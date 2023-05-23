@@ -32,8 +32,6 @@ class AnswerController extends Controller
     {
         Gate::authorize('can-play-game', $game);
 
-        Sleep::sleep(2);
-
         // @todo: check is question already answered
 
         $this->answerQuestion->answer(
