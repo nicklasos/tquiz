@@ -3,7 +3,7 @@
     <div id="main-page-container">
         <div class="main__text">
             <h1>Untrivial Tournament</h1>
-            <p>Multiplayer tournament trivia games</p>
+            <p>Embrace the challenge and join tournaments where thrilling video game questions await you</p>
         </div>
 
         <x-tournaments.list :$tournaments/>
