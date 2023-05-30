@@ -15,7 +15,9 @@
             <div class="tournament__image">
                 @if ($tournament->getFirstMedia('image'))
                     <img src="{{ $tournament->getFirstMediaUrl('image', 'preview') }}"
-                         alt="{{ $tournament->title }}">
+                         alt="{{ $tournament->title }}"
+                         loading="lazy"
+                    >
                 @endif
             </div>
 

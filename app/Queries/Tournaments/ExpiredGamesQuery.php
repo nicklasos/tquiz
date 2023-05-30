@@ -18,7 +18,7 @@ class ExpiredGamesQuery
     {
         return Game::query()
             ->where('status', GameStatus::Playing)
-            ->where('created_at', '<', Carbon::now()->subMinutes(2))
+            ->where('created_at', '<', Carbon::now()->subMinutes(20))
             ->get();
     }
 }
