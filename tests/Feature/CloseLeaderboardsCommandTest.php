@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use App\Models\Game;
-use App\Models\GameStatus;
-use App\Models\Leaderboard;
-use App\Models\LeaderboardStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameStatus;
+use App\Models\Tournaments\Leaderboard;
+use App\Models\Tournaments\LeaderboardStatus;
 use App\Models\TempUser;
 use App\Services\Tournaments\RandomLeaderboardStatus;
 use Carbon\Carbon;

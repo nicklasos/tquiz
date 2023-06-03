@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Queries\Tournaments;
 
 use App\Models\Question;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use App\Queries\Tournaments\Cached\ThemesCachedQuery;
 use Illuminate\Database\Eloquent\Collection;
 

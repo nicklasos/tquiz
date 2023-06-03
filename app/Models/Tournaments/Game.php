@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Tournaments;
 
+use App\Models\TempUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,19 +18,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $tournament_id
  * @property int $game_seed_id
  * @property int $temp_user_id
- * @property \App\Models\GameStatus $status
+ * @property GameStatus $status
  * @property int $place
  * @property int $score
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\QuestionAnswer> $gameAnswers
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, QuestionAnswer> $gameAnswers
  * @property-read int|null $game_answers_count
- * @property-read \App\Models\GameSeed|null $gameSeed
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Leaderboard> $leaderboards
+ * @property-read GameSeed|null $gameSeed
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Leaderboard> $leaderboards
  * @property-read int|null $leaderboards_count
- * @property-read \App\Models\TempUser|null $tempUser
- * @property-read \App\Models\Tournament|null $tournament
- * @method static \Database\Factories\GameFactory factory($count = null, $state = [])
+ * @property-read TempUser|null $tempUser
+ * @property-read Tournament|null $tournament
+ * @method static \Database\Factories\Tournaments\GameFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Game newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Game newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Game query()

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Queries\Tournaments;
 
-use App\Models\Game;
-use App\Models\Leaderboard;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\Leaderboard;
 use Illuminate\Database\Eloquent\Collection;
 
 class LeaderboardQuery

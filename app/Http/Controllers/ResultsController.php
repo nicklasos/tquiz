@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Facades\TempUserSession;
-use App\Models\GameStatus;
+use App\Models\Tournaments\GameStatus;
 use App\Queries\Tournaments\HistoryQuery;
 
 class ResultsController extends Controller

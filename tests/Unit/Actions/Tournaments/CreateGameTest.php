@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests\Unit\Actions\Tournaments;
 
 use App\Actions\Tournaments\CreateGame;
-use App\Models\GameSeed;
+use App\Models\Tournaments\GameSeed;
 use App\Models\TempUser;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 

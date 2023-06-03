@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Actions\Tournaments;
 
-use App\Models\Leaderboard;
+use App\Models\Tournaments\Leaderboard;
 use App\Services\Tournaments\RandomLeaderboardStatus;
 
 class RandomStatusLeaderboard

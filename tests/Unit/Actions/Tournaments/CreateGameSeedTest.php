@@ -6,9 +6,9 @@ namespace Tests\Unit\Actions\Tournaments;
 
 use App\Actions\Tournaments\CreateGameSeed;
 use App\Models\Question;
-use App\Models\QuestionAnswer;
+use App\Models\Tournaments\QuestionAnswer;
 use App\Models\Theme;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 

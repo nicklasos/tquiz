@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Queries\Tournaments;
 
-use App\Models\Game;
-use App\Models\GameStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameStatus;
 use App\Models\TempUser;
 use Illuminate\Database\Eloquent\Collection;
 

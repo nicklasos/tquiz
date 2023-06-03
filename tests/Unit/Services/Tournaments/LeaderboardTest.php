@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Services\Tournaments;
 
-use App\Models\Game;
-use App\Models\GameSeed;
-use App\Models\GameStatus;
-use App\Models\LeaderboardStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameSeed;
+use App\Models\Tournaments\GameStatus;
+use App\Models\Tournaments\LeaderboardStatus;
 use App\Models\TempUser;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use App\Services\Tournaments\LeaderboardService;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -40,7 +40,7 @@ class LeaderboardTest extends TestCase
                 'status' => GameStatus::WaitingFakeParticipants,
             ]);
 
-        \App\Models\Leaderboard::factory()->create([
+        \App\Models\Tournaments\Leaderboard::factory()->create([
             'is_main_user' => true,
             'status' => 'done',
             'score' => 120,
@@ -49,7 +49,7 @@ class LeaderboardTest extends TestCase
             'game_id' => $game->id,
         ]);
 
-        \App\Models\Leaderboard::factory()->create([
+        \App\Models\Tournaments\Leaderboard::factory()->create([
             'status' => 'playing',
             'is_main_user' => false,
             'score' => 150,
@@ -58,7 +58,7 @@ class LeaderboardTest extends TestCase
             'game_id' => $game->id,
         ]);
 
-        \App\Models\Leaderboard::factory()->create([
+        \App\Models\Tournaments\Leaderboard::factory()->create([
             'status' => 'done',
             'is_main_user' => false,
             'score' => 100,

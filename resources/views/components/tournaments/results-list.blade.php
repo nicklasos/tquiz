@@ -23,10 +23,10 @@
                         Date: <span class="results__date_time">13:34:43</span>
                     </div>
                     <div class="results__place">
-                        @if ($game->status === \App\Models\GameStatus::Done)
+                        @if ($game->status === \App\Models\Tournaments\GameStatus::Done)
                             <div class="results__place_trophy">
                                 @if ($game->place <= 3)
-                                <img src="/img/icons/trophy-{{ $game->place }}.svg" alt="{{ $game->place }}place">
+                                    <img src="/img/icons/trophy-{{ $game->place }}.svg" alt="{{ $game->place }}place">
                                 @endif
                                 <span class="results__place_number">
                                     {{ $game->place }}

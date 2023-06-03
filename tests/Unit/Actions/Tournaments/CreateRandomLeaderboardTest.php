@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Tests\Unit\Actions\Tournaments;
 
 use App\Actions\Tournaments\CreateRandomLeaderboard;
-use App\Models\Game;
-use App\Models\GameSeed;
-use App\Models\Leaderboard;
-use App\Models\LeaderboardStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameSeed;
+use App\Models\Tournaments\Leaderboard;
+use App\Models\Tournaments\LeaderboardStatus;
 use App\Models\TempUser;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use App\Services\Tournaments\RandomLeaderboardStatus;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Mockery;

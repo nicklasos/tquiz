@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Actions\Tournaments;
 
-use App\Models\Game;
-use App\Models\GameStatus;
-use App\Models\LeaderboardStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameStatus;
+use App\Models\Tournaments\LeaderboardStatus;
 use App\Queries\Tournaments\FinishTournamentGamesQuery;
 use App\Services\Tournaments\RandomLeaderboardStatus;
 use Illuminate\Database\Eloquent\Collection;

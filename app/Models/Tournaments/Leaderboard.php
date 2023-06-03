@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Tournaments;
 
+use App\Models\TempUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,14 +16,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $game_id
  * @property int $temp_user_id
  * @property int $is_main_user
- * @property \App\Models\LeaderboardStatus $status
+ * @property LeaderboardStatus $status
  * @property int $score
  * @property int|null $place
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Game|null $game
- * @property-read \App\Models\TempUser|null $tempUser
- * @method static \Database\Factories\LeaderboardFactory factory($count = null, $state = [])
+ * @property-read Game|null $game
+ * @property-read TempUser|null $tempUser
+ * @method static \Database\Factories\Tournaments\LeaderboardFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard query()

@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
-use App\Models\Game;
-use App\Models\GameQuestionAnswer;
-use App\Models\GameSeed;
-use App\Models\GameSeedQuestion;
-use App\Models\GameStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameQuestionAnswer;
+use App\Models\Tournaments\GameSeed;
+use App\Models\Tournaments\GameSeedQuestion;
+use App\Models\Tournaments\GameStatus;
 use App\Models\Question;
-use App\Models\QuestionAnswer;
+use App\Models\Tournaments\QuestionAnswer;
 use App\Models\TempUser;
 use App\Models\Theme;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;

@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Tournaments;
 
-use App\Actions\Tournaments\FinishTournament;
-use App\Actions\Tournaments\AnswerQuestion;
 use App\Http\Controllers\Controller;
-use App\Models\Game;
+use App\Models\Tournaments\Game;
 use App\Queries\Images\GameImagesQuery;
-use App\Queries\Tournaments\LeaderboardQuery;
 use App\Queries\Tournaments\GamePlayQuery;
-use App\Queries\Tournaments\NextQuestionQuery;
 use App\Services\Tournaments\AnswerTimingSession;
-use App\Services\Tournaments\LeaderboardService;
 use Gate;
 
 class PlayTournamentController extends Controller

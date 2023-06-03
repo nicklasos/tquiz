@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Queries\Tournaments;
 
 use App\Models\Question;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Database\Eloquent\Collection;
 
 class QuestionsQuery

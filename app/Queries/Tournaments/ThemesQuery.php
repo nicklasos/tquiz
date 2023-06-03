@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Queries\Tournaments;
 
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 
 class ThemesQuery
 {

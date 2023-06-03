@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Models\Game;
-use App\Models\GameQuestionAnswer;
-use App\Models\GameSeed;
-use App\Models\GameSeedQuestion;
-use App\Models\Leaderboard;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameQuestionAnswer;
+use App\Models\Tournaments\GameSeed;
+use App\Models\Tournaments\GameSeedQuestion;
+use App\Models\Tournaments\Leaderboard;
 use Illuminate\Console\Command;
 
 class GamesClearCommand extends Command

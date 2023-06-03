@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use App\Models\Question;
-use App\Models\QuestionAnswer;
+use App\Models\Tournaments\QuestionAnswer;
 use App\Models\Theme;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

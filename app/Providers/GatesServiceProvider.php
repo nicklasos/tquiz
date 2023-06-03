@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Facades\TempUserSession;
-use App\Models\Game;
-use App\Models\Tournament;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\Tournament;
 use Gate;
 use Illuminate\Support\ServiceProvider;
 

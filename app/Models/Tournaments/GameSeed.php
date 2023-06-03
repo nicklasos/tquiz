@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Tournaments;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Traits\Tappable;
 
 /**
  * App\Models\GameSeed
@@ -17,10 +16,10 @@ use Illuminate\Support\Traits\Tappable;
  * @property int $tournament_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\GameSeedQuestion> $gameSeedQuestions
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, GameSeedQuestion> $gameSeedQuestions
  * @property-read int|null $game_seed_questions_count
- * @property-read \App\Models\Tournament|null $tournament
- * @method static \Database\Factories\GameSeedFactory factory($count = null, $state = [])
+ * @property-read Tournament|null $tournament
+ * @method static \Database\Factories\Tournaments\GameSeedFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeed newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeed newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeed query()

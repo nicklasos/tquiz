@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Models\Question;
-use App\Models\QuestionAnswer;
+use App\Models\Tournaments\QuestionAnswer;
 use App\Models\Theme;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Database\Seeder;
 
 class TournamentsSeeder extends Seeder

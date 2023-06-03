@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components\Tournaments;
 
-use App\Models\Game;
+use App\Models\Tournaments\Game;
 use App\Models\Question as QuestionModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;

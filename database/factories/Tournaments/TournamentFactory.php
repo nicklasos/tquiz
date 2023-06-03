@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories;
+namespace Database\Factories\Tournaments;
 
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 

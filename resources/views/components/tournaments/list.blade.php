@@ -1,6 +1,6 @@
 @php
     /**
-     * @var \Illuminate\Database\Eloquent\Collection<\App\Models\Tournament> $tournaments
+     * @var \Illuminate\Database\Eloquent\Collection<\App\Models\Tournaments\Tournament> $tournaments
      */
 @endphp
 

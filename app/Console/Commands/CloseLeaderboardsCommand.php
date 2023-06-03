@@ -6,9 +6,9 @@ namespace App\Console\Commands;
 
 use App\Actions\Tournaments\DoneGame;
 use App\Actions\Tournaments\RandomStatusLeaderboard;
-use App\Models\Game;
-use App\Models\Leaderboard;
-use App\Models\LeaderboardStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\Leaderboard;
+use App\Models\Tournaments\LeaderboardStatus;
 use App\Queries\Tournaments\FakeWaitingGamesQuery;
 use Illuminate\Console\Command;
 

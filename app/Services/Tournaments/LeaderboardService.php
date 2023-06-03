@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Tournaments;
 
-use App\Models\Game;
-use App\Models\GameStatus;
-use App\Models\Leaderboard;
-use App\Models\LeaderboardStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\Leaderboard;
 use App\Queries\Tournaments\LeaderboardQuery;
 use Illuminate\Database\Eloquent\Collection;
 

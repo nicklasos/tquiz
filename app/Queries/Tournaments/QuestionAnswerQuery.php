@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Queries\Tournaments;
 
-use App\Models\QuestionAnswer;
+use App\Models\Tournaments\QuestionAnswer;
 
 class QuestionAnswerQuery
 {

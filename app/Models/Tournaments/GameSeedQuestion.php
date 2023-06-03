@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Tournaments;
 
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,9 +17,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $question_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\GameSeed|null $gameSeed
- * @property-read \App\Models\Question|null $question
- * @method static \Database\Factories\GameSeedQuestionFactory factory($count = null, $state = [])
+ * @property-read GameSeed|null $gameSeed
+ * @property-read Question|null $question
+ * @method static \Database\Factories\Tournaments\GameSeedQuestionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeedQuestion newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeedQuestion newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeedQuestion query()

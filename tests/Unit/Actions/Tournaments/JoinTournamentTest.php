@@ -8,7 +8,7 @@ use App\Actions\Tournaments\JoinTournament;
 use App\Models\Question;
 use App\Models\TempUser;
 use App\Models\Theme;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $name
+ * @property string|null $title
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Database\Factories\ThemeFactory factory($count = null, $state = [])
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Theme whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Theme whereUpdatedAt($value)
  * @mixin \Eloquent
  */

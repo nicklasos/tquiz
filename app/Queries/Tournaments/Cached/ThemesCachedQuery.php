@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Queries\Tournaments\Cached;
 
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use App\Queries\Tournaments\ThemesQuery;
 use Illuminate\Support\Facades\Cache;
 

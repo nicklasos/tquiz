@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Actions\Tournaments;
 
-use App\Models\GameSeed;
+use App\Models\Tournaments\GameSeed;
 use App\Models\Question;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Illuminate\Support\Collection;
 
 class CreateGameSeed

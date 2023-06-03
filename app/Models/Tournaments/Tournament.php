@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Tournaments;
 
+use App\Models\Theme;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,11 +26,14 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Theme> $themes
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, Media> $media
+ * @property-read int|null $media_count
+ * @property-write mixed $image
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Theme> $themes
  * @property-read int|null $themes_count
  * @method static Builder|Tournament active()
  * @method static Builder|Tournament comingSoon(bool $bool = true)
- * @method static \Database\Factories\TournamentFactory factory($count = null, $state = [])
+ * @method static \Database\Factories\Tournaments\TournamentFactory factory($count = null, $state = [])
  * @method static Builder|Tournament newModelQuery()
  * @method static Builder|Tournament newQuery()
  * @method static Builder|Tournament query()

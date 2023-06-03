@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Tournaments;
 use App\Actions\Tournaments\JoinTournament;
 use App\Facades\TempUserSession;
 use App\Http\Controllers\Controller;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Gate;
 
 class JoinTournamentController extends Controller

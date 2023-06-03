@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use App\Models\Game;
-use App\Models\GameStatus;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameStatus;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
@@ -20,14 +20,14 @@ class CloseExpiredGamesCommandTest extends TestCase
             'tournament_id' => 1,
             'game_seed_id' => 1,
             'temp_user_id' => 1,
-            'created_at' => Carbon::now()->subMinutes(5),
+            'created_at' => Carbon::now()->subMinutes(25),
         ]);
 
         $gamePlaying = Game::factory()->create([
             'tournament_id' => 1,
             'game_seed_id' => 1,
             'temp_user_id' => 1,
-            'created_at' => Carbon::now()->subMinutes(1),
+            'created_at' => Carbon::now()->subMinutes(5),
         ]);
 
         $gameWaiting = Game::factory()->create([
@@ -35,7 +35,7 @@ class CloseExpiredGamesCommandTest extends TestCase
             'game_seed_id' => 1,
             'temp_user_id' => 1,
             'status' => GameStatus::WaitingParticipants,
-            'created_at' => Carbon::now()->subMinutes(5),
+            'created_at' => Carbon::now()->subMinutes(25),
         ]);
 
         $this->assertEquals(GameStatus::Playing, $game->status);

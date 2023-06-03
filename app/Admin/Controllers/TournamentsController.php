@@ -3,7 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Theme;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;

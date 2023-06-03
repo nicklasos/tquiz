@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Services\Trivia;
 
-use App\Models\Game;
+use App\Models\Tournaments\Game;
 use App\Services\Tournaments\AnswerTimingSession;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

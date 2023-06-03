@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Queries\Images;
 
-use App\Models\GameSeedQuestion;
+use App\Models\Tournaments\GameSeedQuestion;
 use Illuminate\Support\Collection;
 
 class GameImagesQuery

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Actions\Tournaments;
 
-use App\Models\Game;
-use App\Models\GameSeed;
+use App\Models\Tournaments\Game;
+use App\Models\Tournaments\GameSeed;
 use App\Models\TempUser;
-use App\Models\Tournament;
+use App\Models\Tournaments\Tournament;
 
 class CreateGame
 {
