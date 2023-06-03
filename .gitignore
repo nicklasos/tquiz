@@ -22,3 +22,4 @@ yarn-error.log
 /stuff/import/images/*
 /public/sitemap.xml
 /storage/media-library
+.DS_Store
