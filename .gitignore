@@ -21,3 +21,4 @@ yarn-error.log
 #/stuff/import/*.csv
 /stuff/import/images/*
 /public/sitemap.xml
+/storage/media-library
