@@ -54,6 +54,14 @@ class Question extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
+    protected $fillable = [
+        'theme_id',
+        'import_id',
+        'question',
+        'description',
+        'is_active',
+    ];
+
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',
         'updated_at' => 'datetime:Y-m-d H:i:s',

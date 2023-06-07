@@ -53,6 +53,15 @@ class Tournament extends Model implements HasMedia
     use HasFactory;
     use InteractsWithMedia;
 
+    protected $fillable = [
+        'players',
+        'questions',
+        'is_active',
+        'title',
+        'description',
+        'coming_soon',
+    ];
+
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',
         'updated_at' => 'datetime:Y-m-d H:i:s',
