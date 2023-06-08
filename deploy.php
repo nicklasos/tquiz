@@ -24,7 +24,7 @@ task('deploy', [
     'npm:install',
     'npm:build',
     'deploy:publish',
-    'artisan:octane:reload'
+//    'artisan:octane:reload'
 ]);
 
 desc('Build assets');
