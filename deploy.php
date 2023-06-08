@@ -20,9 +20,9 @@ task('deploy', [
     'artisan:storage:link',
     'artisan:optimize:clear',
     'artisan:migrate',
+    'deploy:php:reload',
     'npm:install',
     'npm:build',
-    'deploy:php:reload',
 //    'artisan:octane:reload',
     'deploy:publish',
 ]);
