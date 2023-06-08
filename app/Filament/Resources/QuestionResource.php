@@ -37,7 +37,7 @@ class QuestionResource extends Resource
                     ->maxLength(65535),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535),
-                forms\components\toggle::make('is_active')
+                Forms\components\toggle::make('is_active')
                     ->required(),
             ]);
     }

@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "laravel/tinker": "^2.8",
+        "laravel/sanctum": "^3.2",
         "sentry/sentry-laravel": "^3.4",
         "spatie/laravel-medialibrary": "^10.0.0",
         "spatie/laravel-sitemap": "^6.2"
