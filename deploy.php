@@ -52,7 +52,7 @@ host('prod')
         'env' => 'prod',
     ])
     ->setIdentityFile('~/.ssh/id_rsa')
-    ->set('branch', 'main')
+    ->set('branch', 'filament')
     ->set('remote_user', 'root')
     ->set('deploy_path', '/var/www/untrivial');
 
