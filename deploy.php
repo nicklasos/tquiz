@@ -22,8 +22,8 @@ task('deploy', [
     'artisan:migrate',
     'npm:install',
     'npm:build',
-//    'deploy:php:reload',
-    'artisan:octane:reload',
+    'deploy:php:reload',
+//    'artisan:octane:reload',
     'deploy:publish',
 ]);
 
