@@ -8,7 +8,7 @@ class TestController extends Controller
 {
     public function __invoke()
     {
-        return 'test';
+        return 'test 1';
         return view('test');
     }
 }
