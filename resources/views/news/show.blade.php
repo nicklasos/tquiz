@@ -8,7 +8,7 @@
                         {{ $news->getFirstMedia('image') }}
                     </div>
                 @endif
-                <p>{{ $news->content }}</p>
+                <p>{!! nl2br($news->content) !!}</p>
 
                 <div class="news-page__read_more_news">
                     <a href="{{ route('news') }}" class="join-button">Read more news</a>
