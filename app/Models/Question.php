@@ -30,7 +30,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property-read int|null $answers_count
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
  * @property-read int|null $media_count
- * @property-write mixed $image
  * @property-read \App\Models\Theme|null $theme
  * @property-read Tournament|null $tournament
  * @method static \Database\Factories\QuestionFactory factory($count = null, $state = [])
@@ -66,11 +65,6 @@ class Question extends Model implements HasMedia
         'created_at' => 'datetime:Y-m-d H:i:s',
         'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
-
-    public function setImageAttribute()
-    {
-
-    }
 
     public function tournament(): BelongsTo
     {

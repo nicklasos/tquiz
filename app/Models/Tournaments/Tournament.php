@@ -28,7 +28,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, Media> $media
  * @property-read int|null $media_count
- * @property-write mixed $image
  * @property-read \Illuminate\Database\Eloquent\Collection<int, Theme> $themes
  * @property-read int|null $themes_count
  * @method static Builder|Tournament active()
@@ -66,11 +65,6 @@ class Tournament extends Model implements HasMedia
         'created_at' => 'datetime:Y-m-d H:i:s',
         'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
-
-    public function setImageAttribute()
-    {
-
-    }
 
     public function registerMediaConversions(Media $media = null): void
     {

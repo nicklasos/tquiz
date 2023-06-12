@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\Tournaments\AnswerController;
 use App\Http\Controllers\Tournaments\LeaderboardController;
 use App\Http\Controllers\ResultsController;
@@ -29,6 +30,14 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     |--------------------------------------------------------------------------
     */
     Route::get('test', TestController::class);
+
+    /*
+    |--------------------------------------------------------------------------
+    | News
+    |--------------------------------------------------------------------------
+    */
+    Route::get('news', [NewsController::class, 'index'])->name('news');
+    Route::get('news/{news}', [NewsController::class, 'show'])->name('news.show');
 
     /*
     |--------------------------------------------------------------------------

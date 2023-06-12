@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $question_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read GameSeed|null $gameSeed
+ * @property-read \App\Models\Tournaments\GameSeed|null $gameSeed
  * @property-read Question|null $question
  * @method static \Database\Factories\Tournaments\GameSeedQuestionFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeedQuestion newModelQuery()

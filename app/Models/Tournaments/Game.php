@@ -18,18 +18,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $tournament_id
  * @property int $game_seed_id
  * @property int $temp_user_id
- * @property GameStatus $status
+ * @property \App\Models\Tournaments\GameStatus $status
  * @property int $place
  * @property int $score
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, QuestionAnswer> $gameAnswers
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tournaments\QuestionAnswer> $gameAnswers
  * @property-read int|null $game_answers_count
- * @property-read GameSeed|null $gameSeed
- * @property-read \Illuminate\Database\Eloquent\Collection<int, Leaderboard> $leaderboards
+ * @property-read \App\Models\Tournaments\GameSeed|null $gameSeed
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tournaments\Leaderboard> $leaderboards
  * @property-read int|null $leaderboards_count
  * @property-read TempUser|null $tempUser
- * @property-read Tournament|null $tournament
+ * @property-read \App\Models\Tournaments\Tournament|null $tournament
  * @method static \Database\Factories\Tournaments\GameFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Game newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Game newQuery()

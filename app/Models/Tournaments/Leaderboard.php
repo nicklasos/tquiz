@@ -16,12 +16,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $game_id
  * @property int $temp_user_id
  * @property int $is_main_user
- * @property LeaderboardStatus $status
+ * @property \App\Models\Tournaments\LeaderboardStatus $status
  * @property int $score
  * @property int|null $place
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Game|null $game
+ * @property-read \App\Models\Tournaments\Game|null $game
  * @property-read TempUser|null $tempUser
  * @method static \Database\Factories\Tournaments\LeaderboardFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Leaderboard newModelQuery()

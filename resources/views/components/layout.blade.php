@@ -146,6 +146,9 @@
                         <a href="{{ route('home') }}">TQuiz</a>
                     </h2>
                     <div>
+                        <a href="{{ route('news') }}" class="link">Game News</a>
+                    </div>
+                    <div>
                         <a href="{{ route('privacy') }}" class="link">Privacy Policy</a>
                     </div>
                     <div>

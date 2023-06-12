@@ -16,9 +16,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $tournament_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, GameSeedQuestion> $gameSeedQuestions
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tournaments\GameSeedQuestion> $gameSeedQuestions
  * @property-read int|null $game_seed_questions_count
- * @property-read Tournament|null $tournament
+ * @property-read \App\Models\Tournaments\Tournament|null $tournament
  * @method static \Database\Factories\Tournaments\GameSeedFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeed newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|GameSeed newQuery()

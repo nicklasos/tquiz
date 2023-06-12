@@ -3,3 +3,6 @@ models:
 
 update:
 	composer update && npm update
+
+dev:
+	npm run dev

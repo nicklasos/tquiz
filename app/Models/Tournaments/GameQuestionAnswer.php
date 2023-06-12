@@ -20,9 +20,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $seconds
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read Game|null $game
- * @property-read GameSeed|null $gameSeed
- * @property-read QuestionAnswer|null $questionAnswer
+ * @property-read \App\Models\Tournaments\Game|null $game
+ * @property-read \App\Models\Tournaments\GameSeed|null $gameSeed
+ * @property-read \App\Models\Tournaments\QuestionAnswer|null $questionAnswer
  * @property-read TempUser|null $tempUser
  * @method static \Database\Factories\Tournaments\GameQuestionAnswerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|GameQuestionAnswer newModelQuery()

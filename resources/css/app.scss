@@ -914,3 +914,52 @@ body {
         transform: rotate(360deg);
     }
 }
+
+
+// News
+.news {
+    margin-top: 20px;
+
+    h1 {
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    &__item {
+        margin: 40px 0;
+    }
+
+    &__read_more_news {
+        margin-top: 50px;
+    }
+}
+
+.news-page {
+    h1 {
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    &__read_more_news {
+        margin-top: 50px;
+    }
+
+    &__image {
+        margin-bottom: 20px;
+
+        img {
+            max-width: 500px;
+            border-radius: 10px;
+        }
+    }
+}
