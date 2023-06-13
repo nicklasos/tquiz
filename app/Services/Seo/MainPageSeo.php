@@ -17,7 +17,8 @@ class MainPageSeo
     public function fill(): void
     {
         SEOMeta::setTitle('Join Game');
-        SEOMeta::setDescription('Untrivial Tournament is an immersive gaming app where players compete in trivia challenges centered around video games. Join thrilling tournaments and test your knowledge on popular titles like Mario, Zelda, The Witcher, GTA, Uncharted, God of War, and more. Prove your expertise, engage in head-to-head battles, and strive to become the ultimate champion of the gaming world.');
+        SEOMeta::setKeywords('video games trivia, games trivia, quiz');
+        SEOMeta::setDescription('Untrivial Tournament is an immersive video games trivia where players compete in trivia challenges centered around video games. Join thrilling tournaments and test your knowledge on popular titles like Mario, Zelda, The Witcher, GTA, Uncharted, God of War, and more. Prove your expertise, engage in head-to-head battles, and strive to become the ultimate champion of the gaming world.');
         SEOMeta::setCanonical(config('app.url'));
 
         OpenGraph::setDescription('Untrivial Tournament is an immersive gaming app where players compete in trivia challenges centered around video games.');
@@ -29,7 +30,7 @@ class MainPageSeo
         TwitterCard::setSite('@untrivial.gg');
 
         JsonLd::setTitle('Untrivial Tournament');
-        JsonLd::setDescription('Untrivial Tournament is an immersive gaming app where players compete in trivia challenges centered around video games.');
+        JsonLd::setDescription('Untrivial Tournament is an immersive video games trivia where players compete in trivia challenges centered around video games.');
         JsonLd::addImage('https://untrivial.gg/android-chrome-192x192.png');
     }
 }
