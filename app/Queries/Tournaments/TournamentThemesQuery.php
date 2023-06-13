@@ -6,7 +6,7 @@ namespace App\Queries\Tournaments;
 
 use App\Models\Tournaments\Tournament;
 
-class ThemesQuery
+class TournamentThemesQuery
 {
     public function idsForTournament(Tournament $tournament): array
     {

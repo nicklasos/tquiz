@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Queries\Tournaments\Cached;
 
 use App\Models\Tournaments\Tournament;
-use App\Queries\Tournaments\ThemesQuery;
+use App\Queries\Tournaments\TournamentThemesQuery;
 use Illuminate\Support\Facades\Cache;
 
 class ThemesCachedQuery
 {
-    public function __construct(private readonly ThemesQuery $query)
+    public function __construct(private readonly TournamentThemesQuery $query)
     {
     }
 

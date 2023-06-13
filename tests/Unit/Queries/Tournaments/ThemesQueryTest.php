@@ -7,7 +7,7 @@ namespace Tests\Unit\Queries\Tournaments;
 use App\Models\Theme;
 use App\Models\Tournaments\Tournament;
 use App\Queries\Tournaments\Cached\ThemesCachedQuery;
-use App\Queries\Tournaments\ThemesQuery;
+use App\Queries\Tournaments\TournamentThemesQuery;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
@@ -25,7 +25,7 @@ class ThemesQueryTest extends TestCase
             ->hasAttached($themes)
             ->create();
 
-        $query = app(ThemesQuery::class);
+        $query = app(TournamentThemesQuery::class);
 
         $ids = $query->idsForTournament($tournament);
 

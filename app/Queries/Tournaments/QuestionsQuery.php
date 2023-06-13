@@ -11,11 +11,14 @@ use Illuminate\Database\Eloquent\Collection;
 class QuestionsQuery
 {
     /**
-     * @param array $themeIds
+     * @param array|\Illuminate\Support\Collection $themeIds
      * @param int $limit
      * @return Collection<int, Question>
      */
-    public function randomQuestions(array $themeIds, int $limit): Collection
+    public function randomQuestions(
+        array|\Illuminate\Support\Collection $themeIds,
+        int                                  $limit
+    ): Collection
     {
         return Question::query()
             ->whereIn('theme_id', $themeIds)

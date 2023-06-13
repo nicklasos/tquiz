@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SinglePlayer\CreateSinglePlayerController;
+use App\Http\Controllers\SinglePlayer\DoneSinglePlayerController;
 use App\Http\Controllers\Tournaments\AnswerController;
 use App\Http\Controllers\Tournaments\LeaderboardController;
 use App\Http\Controllers\ResultsController;
@@ -69,6 +71,15 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     */
     Route::post('question/{id}/like', [QuestionLikesController::class, 'like']);
     Route::post('question/{id}/dislike', [QuestionLikesController::class, 'dislike']);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SinglePlayer
+    |--------------------------------------------------------------------------
+    */
+    Route::post('single-player', CreateSinglePlayerController::class);
+    Route::post('single-player/{singlePlayer}', DoneSinglePlayerController::class);
 });
 
 Route::view('privacy-policy', 'legal.privacy')->name('privacy');

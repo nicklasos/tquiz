@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Facades\TempUserSession;
+use App\Models\SinglePlayer\SinglePlayer;
 use App\Models\Tournaments\Game;
 use App\Models\Tournaments\Tournament;
 use Gate;
@@ -34,6 +35,17 @@ class GatesServiceProvider extends ServiceProvider
 
         Gate::define('can-view-result', function ($user = null, Game $game = null) {
             return $game && $game->temp_user_id === TempUserSession::getId();
+        });
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | SinglePlayer
+        |--------------------------------------------------------------------------
+        */
+
+        Gate::define('can-done-single-player', function ($user = null, SinglePlayer $singlePlayer = null) {
+            return $singlePlayer && $singlePlayer->temp_user_id === TempUserSession::getId();
         });
     }
 }
