@@ -17,7 +17,7 @@ class MainPageSeo
     public function fill(): void
     {
         SEOMeta::setTitle('Join Game');
-        SEOMeta::setKeywords('video games trivia, games trivia, quiz');
+        SEOMeta::setKeywords('video games trivia, games trivia, quiz, nintendo trivia, playstation, minecraft, dota 2, roblox, fortnite, world of warcraft');
         SEOMeta::setDescription('Untrivial Tournament is an immersive video games trivia where players compete in trivia challenges centered around video games. Join thrilling tournaments and test your knowledge on popular titles like Mario, Zelda, The Witcher, GTA, Uncharted, God of War, and more. Prove your expertise, engage in head-to-head battles, and strive to become the ultimate champion of the gaming world.');
         SEOMeta::setCanonical(config('app.url'));
 
