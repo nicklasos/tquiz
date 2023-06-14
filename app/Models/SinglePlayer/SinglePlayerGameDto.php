@@ -24,4 +24,9 @@ class SinglePlayerGameDto
             throw new NoQuestionsForSinglePlayerException();
         }
     }
+
+    public function getAllImages(): array
+    {
+
+    }
 }

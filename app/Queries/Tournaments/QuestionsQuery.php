@@ -21,6 +21,11 @@ class QuestionsQuery
     ): Collection
     {
         return Question::query()
+            ->with([
+                'theme',
+                'answers',
+                'media',
+            ])
             ->whereIn('theme_id', $themeIds)
             ->where('is_active', true)
             ->inRandomOrder()

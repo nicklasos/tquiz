@@ -78,8 +78,8 @@ Route::group(['middleware' => ['temp_user.auth']], function () {
     | SinglePlayer
     |--------------------------------------------------------------------------
     */
-    Route::post('single-player', CreateSinglePlayerController::class);
-    Route::post('single-player/{singlePlayer}', DoneSinglePlayerController::class);
+    Route::post('single-player', CreateSinglePlayerController::class)->name('single-player.join');
+    Route::post('single-player/{singlePlayer}', DoneSinglePlayerController::class)->name('single-player.play');
 });
 
 Route::view('privacy-policy', 'legal.privacy')->name('privacy');

@@ -6,6 +6,10 @@
             <p>Embrace the challenge and join tournaments where thrilling video game questions await you</p>
         </div>
 
+        <x-single-player-game />
+
+        <h2 class="game-divider">Multiplayer Trivia</h2>
+
         <x-tournaments.list :$tournaments/>
 
 
