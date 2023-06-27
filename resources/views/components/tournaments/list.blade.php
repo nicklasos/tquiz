@@ -39,7 +39,7 @@
 
                     <div class="tournament__join">
                         <form action="{{ route('tournament.join', $tournament) }}" method="post">
-                            <button class="join-button">Join</button>
+                            <button class="join-button">Play</button>
                         </form>
                     </div>
                 </div>
