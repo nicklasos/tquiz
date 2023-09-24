@@ -15,10 +15,6 @@ class LeaderboardService
     {
     }
 
-    /**
-     * @param Game $game
-     * @return Collection<Leaderboard>
-     */
     public function getByGame(Game $game): Collection
     {
         $leaderboards = $this->leaderboardQuery->getByGame($game);

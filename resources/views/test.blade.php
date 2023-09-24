@@ -1,5 +1,5 @@
 @php
-@endphp
+    @endphp
 
 @vite(['resources/css/app.scss', 'resources/js/app.js'])
 
@@ -9,6 +9,12 @@
     <button id="open-popup">open</button>
     <div class="loader"></div>
 </div>
+
+-- body --
+
+{{ request()->integer('x') }}
+
+-- end body --
 
 <x-popup />
 </body>

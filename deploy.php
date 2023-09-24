@@ -1,4 +1,5 @@
 <?php
+
 namespace Deployer;
 
 require 'recipe/laravel.php';
@@ -44,10 +45,20 @@ task('horizon:terminate', function () {
     run('cd {{release_or_current_path}} && sudo {{bin/php}} artisan horizon:terminate');
 });
 
+try {
+    $env = explode("\n", file_get_contents(__DIR__.'/.env'));
+    $ipLine = array_values(array_filter($env, fn(string $line) => str_contains($line, 'DEPLOY_IP')))[0];
+    $ip = explode('=', str_replace(['"', "'"], '', $ipLine))[1];
+} catch (\Exception) {
+    echo "Add DEPLOY_IP=0.0.0.0 to .env file\n";
+    exit(1);
+}
+
+
 // Hosts
 
 host('prod')
-    ->setHostname('198.199.68.121')
+    ->setHostname($ip)
     ->setLabels([
         'env' => 'prod',
     ])

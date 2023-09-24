@@ -8,7 +8,15 @@ class TestController extends Controller
 {
     public function __invoke()
     {
-        return 'ok';
+//        return 'ok';
 //        return view('test');
+
+        return [
+            'name' => 'TQuiz',
+            'description' => 'Quiz game',
+            'subscribers_count' => 2,
+            'stargazers_count' => 3,
+            'forks_count' => mt_rand(0, 1000),
+        ];
     }
 }
